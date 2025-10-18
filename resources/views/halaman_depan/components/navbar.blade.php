@@ -20,25 +20,40 @@
                     <span
                         class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#about"
-                    class="text-gray-700 hover:text-cyan-600 font-medium transition duration-200 relative group">
+                @php
+                    $isHomePage = request()->is('/');
+                    $isAboutPage = request()->is('about');
+                @endphp
+
+                <!-- About us -->
+                <a href="{{ $isHomePage ? '#about' : url('/about') }}"
+                    class="text-gray-700 font-medium transition duration-200 relative group
+        {{ $isAboutPage ? 'text-cyan-600' : 'hover:text-cyan-600' }}">
                     About us
                     <span
-                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-600 group-hover:w-full transition-all duration-300"></span>
+                        class="absolute bottom-0 left-0 h-0.5 bg-cyan-600 transition-all duration-300
+            {{ $isAboutPage ? 'w-full' : 'w-0 group-hover:w-full' }}">
+                    </span>
                 </a>
-                <a href="#program"
+
+                <!-- Programs -->
+                <a href="{{ $isAboutPage ? url('/#program') : '#program' }}"
                     class="text-gray-700 hover:text-cyan-600 font-medium transition duration-200 relative group">
                     Programs & Projects
                     <span
                         class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#literacy"
+
+                <!-- Literacy -->
+                <a href="{{ $isAboutPage ? url('/#literacy') : '#literacy' }}"
                     class="text-gray-700 hover:text-cyan-600 font-medium transition duration-200 relative group">
                     Literacy Corner
                     <span
                         class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-600 group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#news"
+
+                <!-- News -->
+                <a href="{{ $isAboutPage ? url('/#news') : '#news' }}"
                     class="text-gray-700 hover:text-cyan-600 font-medium transition duration-200 relative group">
                     News
                     <span

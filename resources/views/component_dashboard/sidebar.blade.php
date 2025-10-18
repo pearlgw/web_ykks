@@ -24,8 +24,23 @@
         </a>
 
         @if (Auth::user()->role === 'admin')
+            <a href="{{ route('staff.index') }}"
+                class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
+            {{ request()->is('staff*')
+                ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 border border-blue-200'
+                : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50' }}">
+                <div class="flex items-center justify-center w-6 h-6">
+                    <i
+                        class="fas fa-user w-5 h-5 {{ request()->is('staff*') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500' }} transition-colors"></i>
+                </div>
+                <span>Staff</span>
 
-            <!-- Contact -->
+                <!-- Indicator -->
+                @if (request()->is('staff*'))
+                    <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
+                @endif
+            </a>
+
             <a href="{{ route('contact.index') }}"
                 class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
             {{ request()->is('contact*')

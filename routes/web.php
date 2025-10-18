@@ -4,10 +4,19 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('halaman_depan/navhero');
+});
+
+Route::get('/about', function () {
+    return view('about.index');
+});
+
+Route::get('/program-project', function () {
+    return view('program_project.index');
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -34,6 +43,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/content/{id}', [ContentController::class, 'show'])->name('content.show');
     Route::get('/content/{id}/edit', [ContentController::class, 'edit'])->name('content.edit');
     Route::delete('/content/{id}', [ContentController::class, 'destroy'])->name('content.destroy');
+
+    Route::middleware('role:admin')->group(function () {
+        Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
+        Route::get('/staff/create', [StaffController::class, 'create'])->name('staff.create');
+        Route::post('/staff', [StaffController::class, 'store'])->name('staff.store');
+        Route::put('/staff/{id}', [StaffController::class, 'update'])->name('staff.update');
+        Route::get('/staff/{id}', [StaffController::class, 'show'])->name('staff.show');
+        Route::get('/staff/{id}/edit', [StaffController::class, 'edit'])->name('staff.edit');
+        Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('staff.destroy');
+    });
 });
 
 require __DIR__ . '/auth.php';

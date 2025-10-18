@@ -26,10 +26,10 @@
                         uplifts lives and encourages inclusive development across local communities.
                     </p>
 
-                    <button
+                    <a href="/about"
                         class="bg-[#009ED6] hover:bg-cyan-700 hover:text-white px-8 py-3 rounded-md font-medium transition ml-16">
                         Learn more
-                    </button>
+                    </a>
                 </div>
             </div>
 

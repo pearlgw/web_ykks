@@ -24,13 +24,14 @@
                 <div class="space-y-6 border-l-2 border-gray-800 pl-6">
                     <!-- Swipe Safe -->
                     <div>
-                        <div class="flex items-start space-x-3 mb-2">
+                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
                             <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
                                 <i class="fas fa-mobile-alt text-xs"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-900">Swipe Safe</h3>
-                        </div>
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-gray-900 transition-colors">
+                                Swipe Safe</h3>
+                        </a>
                         <p class="text-gray-700 text-sm ml-9">
                             A digital literacy program for children and youth to promote safer and wiser use of
                             social media and understanding online safety.
@@ -39,13 +40,13 @@
 
                     <!-- Indo Youth Advisory -->
                     <div>
-                        <div class="flex items-start space-x-3 mb-2">
+                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
                             <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
                                 <i class="fas fa-users text-xs"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900">Indo Youth Advisory</h3>
-                        </div>
+                        </a>
                         <p class="text-gray-700 text-sm ml-9">
                             A participatory forum that empowers young people to voice their opinions and propose
                             solutions to social issues in their communities.
@@ -54,13 +55,13 @@
 
                     <!-- Voice Now -->
                     <div>
-                        <div class="flex items-start space-x-3 mb-2">
+                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
                             <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
                                 <i class="fas fa-microphone text-xs"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900">Voice Now</h3>
-                        </div>
+                        </a>
                         <p class="text-gray-700 text-sm ml-9">
                             A creative space for children and youth to express their thoughts and feelings through
                             art, storytelling, and media as part of healing and empowerment efforts.
@@ -69,13 +70,13 @@
 
                     <!-- WWEE -->
                     <div>
-                        <div class="flex items-start space-x-3 mb-2">
+                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
                             <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
                                 <i class="fas fa-leaf text-xs"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900">WWEE</h3>
-                        </div>
+                        </a>
                         <p class="text-gray-700 text-sm ml-9">
                             A program that focuses on empowering women in conservation areas through education,
                             livelihood support, and environmental awareness to promote sustainable living.
