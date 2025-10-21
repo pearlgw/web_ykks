@@ -41,6 +41,23 @@
                 @endif
             </a>
 
+            <a href="{{ route('program.index') }}"
+                class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
+            {{ request()->is('program*')
+                ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 border border-blue-200'
+                : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50' }}">
+                <div class="flex items-center justify-center w-6 h-6">
+                    <i
+                        class="fas fa-project-diagram w-5 h-5 {{ request()->is('program*') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500' }} transition-colors"></i>
+                </div>
+                <span>Program</span>
+
+                <!-- Indicator -->
+                @if (request()->is('program*'))
+                    <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
+                @endif
+            </a>
+
             <a href="{{ route('contact.index') }}"
                 class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
             {{ request()->is('contact*')
@@ -73,6 +90,23 @@
 
             <!-- Indicator -->
             @if (request()->is('content*'))
+                <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
+            @endif
+        </a>
+
+        <a href="{{ url('/project') }}"
+            class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
+            {{ request()->is('project*')
+                ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 border border-blue-200'
+                : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50' }}">
+            <div class="flex items-center justify-center w-6 h-6">
+                <i
+                    class="fas fa-layer-group w-5 h-5 {{ request()->is('project*') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500' }} transition-colors"></i>
+            </div>
+            <span>Project</span>
+
+            <!-- Indicator -->
+            @if (request()->is('project*'))
                 <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
             @endif
         </a>

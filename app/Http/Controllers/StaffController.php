@@ -10,7 +10,6 @@ class StaffController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $user = auth()->user();
 
         $staffs = User::where('role', 'staff')
             ->when($search, function ($query, $search) {
