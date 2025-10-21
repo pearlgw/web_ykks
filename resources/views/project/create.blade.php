@@ -169,7 +169,7 @@
                                                 <option value="">Select a user</option>
                                                 @foreach ($users as $user)
                                                     <option value="{{ $user->id }}"
-                                                        {{ old('user_id', $project->user_id) == $user->id ? 'selected' : '' }}>
+                                                        {{ old('user_id', isset($project) ? $project->user_id : '') == $user->id ? 'selected' : '' }}>
                                                         {{ $user->name }} ({{ $user->email }})
                                                     </option>
                                                 @endforeach
@@ -197,22 +197,24 @@
                                             project</p>
                                     </div>
 
-                                    <!-- Current User Preview -->
-                                    <div
-                                        class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
-                                        <p class="text-xs font-semibold text-gray-600 mb-2">Current Manager</p>
-                                        <div class="flex items-center gap-3">
-                                            <div
-                                                class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center text-white font-semibold">
-                                                {{ strtoupper(substr($project->user->name, 0, 2)) }}
-                                            </div>
-                                            <div>
-                                                <p class="font-semibold text-gray-800 text-sm">
-                                                    {{ $project->user->name }}</p>
-                                                <p class="text-xs text-gray-600">{{ $project->user->email }}</p>
+                                    <!-- Current User Preview - Only show on Edit page -->
+                                    @if (isset($project))
+                                        <div
+                                            class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-200">
+                                            <p class="text-xs font-semibold text-gray-600 mb-2">Current Manager</p>
+                                            <div class="flex items-center gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center text-white font-semibold">
+                                                    {{ strtoupper(substr($project->user->name, 0, 2)) }}
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold text-gray-800 text-sm">
+                                                        {{ $project->user->name }}</p>
+                                                    <p class="text-xs text-gray-600">{{ $project->user->email }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @else
                                     <!-- Hidden input for Staff - Auto fill with logged in user -->
                                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
