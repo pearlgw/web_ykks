@@ -22,6 +22,7 @@ Route::get('/program-project', function () {
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/ckeditor/upload', [ProjectController::class, 'uploadImage'])->name('ckeditor.upload');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -38,13 +39,13 @@ Route::middleware('auth')->group(function () {
         ->name('contact.index')
         ->middleware('role:admin');
 
-    Route::get('/content', [ContentController::class, 'index'])->name('content.index');
-    Route::get('/content/create', [ContentController::class, 'create'])->name('content.create');
-    Route::post('/content', [ContentController::class, 'store'])->name('content.store');
-    Route::put('/content/{id}', [ContentController::class, 'update'])->name('content.update');
-    Route::get('/content/{id}', [ContentController::class, 'show'])->name('content.show');
-    Route::get('/content/{id}/edit', [ContentController::class, 'edit'])->name('content.edit');
-    Route::delete('/content/{id}', [ContentController::class, 'destroy'])->name('content.destroy');
+    // Route::get('/content', [ContentController::class, 'index'])->name('content.index');
+    // Route::get('/content/create', [ContentController::class, 'create'])->name('content.create');
+    // Route::post('/content', [ContentController::class, 'store'])->name('content.store');
+    // Route::put('/content/{id}', [ContentController::class, 'update'])->name('content.update');
+    // Route::get('/content/{id}', [ContentController::class, 'show'])->name('content.show');
+    // Route::get('/content/{id}/edit', [ContentController::class, 'edit'])->name('content.edit');
+    // Route::delete('/content/{id}', [ContentController::class, 'destroy'])->name('content.destroy');
 
     Route::get('/project', [ProjectController::class, 'index'])->name('project.index');
     Route::get('/project/create', [ProjectController::class, 'create'])->name('project.create');

@@ -218,19 +218,73 @@
                                 </div>
 
                                 <!-- User Selection Field -->
+                                @if (auth()->user()->role === 'admin')
+                                    <div>
+                                        <label for="user_id" class="block text-sm font-semibold text-gray-700 mb-2">
+                                            Assign to User <span class="text-red-500">*</span>
+                                        </label>
+                                        <div class="relative">
+                                            <select id="user_id" name="user_id"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none bg-white @error('user_id') border-red-500 @enderror"
+                                                required>
+                                                <option value="">Select a user</option>
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}"
+                                                        {{ old('user_id', $project->user_id) == $user->id ? 'selected' : '' }}>
+                                                        {{ $user->name }} ({{ $user->email }})
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div
+                                                class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                                                <svg class="w-5 h-5 text-gray-400" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        @error('user_id')
+                                            <p class="mt-2 text-sm text-red-600 flex items-center gap-1">
+                                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                                {{ $message }}
+                                            </p>
+                                        @enderror
+                                        <p class="mt-2 text-xs text-gray-500">Select the user who will manage this
+                                            project
+                                        </p>
+                                    </div>
+                                @else
+                                    <!-- Hidden input for Staff - Auto fill with logged in user -->
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                @endif
+
                                 <div>
-                                    <label for="user_id" class="block text-sm font-semibold text-gray-700 mb-2">
-                                        Assign to User <span class="text-red-500">*</span>
+                                    <label for="program_id" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        Program Category <span class="text-red-500">*</span>
                                     </label>
                                     <div class="relative">
-                                        <select id="user_id" name="user_id"
-                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none bg-white @error('user_id') border-red-500 @enderror"
+                                        <div
+                                            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <select id="program_id" name="program_id"
+                                            class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 appearance-none bg-white @error('program_id') border-red-500 @enderror"
                                             required>
-                                            <option value="">Select a user</option>
-                                            @foreach ($users as $user)
-                                                <option value="{{ $user->id }}"
-                                                    {{ old('user_id', $project->user_id) == $user->id ? 'selected' : '' }}>
-                                                    {{ $user->name }} ({{ $user->email }})
+                                            <option value="">Choose program category...</option>
+                                            @foreach ($programs as $program)
+                                                <option value="{{ $program->id }}"
+                                                    {{ old('program_id', isset($project) ? $project->program_id : '') == $program->id ? 'selected' : '' }}>
+                                                    {{ $program->title }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -243,7 +297,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    @error('user_id')
+                                    @error('program_id')
                                         <p class="mt-2 text-sm text-red-600 flex items-center gap-1">
                                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd"
@@ -253,7 +307,10 @@
                                             {{ $message }}
                                         </p>
                                     @enderror
-                                    <p class="mt-2 text-xs text-gray-500">Select the user who will manage this project
+                                    <p class="mt-2 text-xs text-gray-500">
+                                        <span class="inline-flex items-center gap-1">
+                                            Select the program category for this project
+                                        </span>
                                     </p>
                                 </div>
 
@@ -369,6 +426,128 @@
             noImagePlaceholder.classList.remove('hidden');
             removeImageBtn.classList.add('hidden');
             previewLabel.textContent = 'No image uploaded yet';
+        });
+    </script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+    <script>
+        let editorInstance;
+
+        class MyUploadAdapter {
+            constructor(loader) {
+                this.loader = loader;
+            }
+
+            upload() {
+                return this.loader.file
+                    .then(file => new Promise((resolve, reject) => {
+                        const data = new FormData();
+                        data.append('upload', file);
+                        data.append('_token', '{{ csrf_token() }}');
+
+                        fetch('{{ route('ckeditor.upload') }}', {
+                                method: 'POST',
+                                body: data,
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(result => {
+                                if (result.url) {
+                                    resolve({
+                                        default: result.url
+                                    });
+                                } else {
+                                    reject(result.error?.message || 'Upload failed');
+                                }
+                            })
+                            .catch(error => {
+                                reject('Upload failed: ' + error);
+                            });
+                    }));
+            }
+
+            abort() {
+                // Handle abort
+            }
+        }
+
+        function MyCustomUploadAdapterPlugin(editor) {
+            editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                return new MyUploadAdapter(loader);
+            };
+        }
+
+        ClassicEditor
+            .create(document.querySelector('#description'), {
+                extraPlugins: [MyCustomUploadAdapterPlugin],
+                toolbar: {
+                    items: [
+                        'heading', '|',
+                        'bold', 'italic', 'link', '|',
+                        'bulletedList', 'numberedList', '|',
+                        'insertTable', 'blockQuote', '|',
+                        'imageUpload', 'mediaEmbed', '|',
+                        'undo', 'redo'
+                    ]
+                },
+                heading: {
+                    options: [{
+                            model: 'paragraph',
+                            title: 'Paragraph',
+                            class: 'ck-heading_paragraph'
+                        },
+                        {
+                            model: 'heading1',
+                            view: 'h1',
+                            title: 'Heading 1',
+                            class: 'ck-heading_heading1'
+                        },
+                        {
+                            model: 'heading2',
+                            view: 'h2',
+                            title: 'Heading 2',
+                            class: 'ck-heading_heading2'
+                        },
+                        {
+                            model: 'heading3',
+                            view: 'h3',
+                            title: 'Heading 3',
+                            class: 'ck-heading_heading3'
+                        }
+                    ]
+                },
+                image: {
+                    toolbar: [
+                        'imageTextAlternative', '|',
+                        'imageStyle:inline', 'imageStyle:block', 'imageStyle:side'
+                    ]
+                },
+                table: {
+                    contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+                }
+            })
+            .then(editor => {
+                editorInstance = editor;
+                console.log('CKEditor initialized successfully');
+            })
+            .catch(error => {
+                console.error('CKEditor initialization error:', error);
+            });
+
+        // Validasi form sebelum submit
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const editorData = editorInstance.getData();
+
+            if (!editorData || editorData.trim() === '') {
+                e.preventDefault();
+                alert('Description is required!');
+                return false;
+            }
+
+            // Update textarea dengan data dari CKEditor
+            document.querySelector('#description').value = editorData;
         });
     </script>
 </x-app-layout>

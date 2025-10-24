@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class ProjectController extends Controller
         $search = $request->input('search');
         $user = auth()->user();
 
-        $projects = Project::with('user')
+        $projects = Project::with('user', 'program')
             ->when($search, function ($query, $search) {
                 $query->where('title', 'like', "%{$search}%");
             })
@@ -37,7 +38,8 @@ class ProjectController extends Controller
     public function create()
     {
         $users = User::where('role', 'staff')->latest()->get();
-        return view('project.create', compact('users'));
+        $programs = Program::latest()->get();
+        return view('project.create', compact('users', 'programs'));
     }
 
     /**
@@ -53,6 +55,7 @@ class ProjectController extends Controller
             'participant_count' => 'required|integer|min:1',
             'image_backdrop' => 'nullable|image|max:2048',
             'user_id' => 'required|exists:users,id',
+            'program_id' => 'required|exists:programs,id',
         ]);
 
         if ($request->hasFile('image_backdrop')) {
@@ -70,7 +73,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project = Project::with('user')->findOrFail($id);
+        $project = Project::with('user', 'program')->findOrFail($id);
         $user = auth()->user();
 
         if ($user->role === 'staff' && $project->user_id !== $user->id) {
@@ -92,7 +95,8 @@ class ProjectController extends Controller
             abort(403, 'tidak memiliki akses.');
         }
         $users = User::where('role', 'staff')->latest()->get();
-        return view('project.edit', compact('project', 'users'));
+        $programs = Program::latest()->get();
+        return view('project.edit', compact('project', 'users', 'programs'));
     }
 
     /**
@@ -115,6 +119,7 @@ class ProjectController extends Controller
             'participant_count' => 'required|integer|min:1',
             'image_backdrop' => 'nullable|image|max:2048',
             'user_id' => 'required|exists:users,id',
+            'program_id' => 'required|exists:programs,id',
         ]);
 
         if ($request->hasFile('image_backdrop')) {
@@ -142,5 +147,28 @@ class ProjectController extends Controller
         $project->delete();
 
         return redirect()->route('project.index')->with('success', 'Project deleted successfully.');
+    }
+
+    public function uploadImage(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $file = $request->file('upload');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('uploads/ckeditor', $filename, 'public');
+
+            $url = asset('storage/' . $path);
+
+            return response()->json([
+                'uploaded' => true,
+                'url' => $url
+            ]);
+        }
+
+        return response()->json([
+            'uploaded' => false,
+            'error' => [
+                'message' => 'Upload failed'
+            ]
+        ]);
     }
 }

@@ -50,6 +50,19 @@
                         <!-- Content Body -->
                         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                             <div class="p-8">
+                                <!-- Program Badge -->
+                                <div class="mb-4">
+                                    <span
+                                        class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z">
+                                            </path>
+                                        </svg>
+                                        {{ $project->program->title }}
+                                    </span>
+                                </div>
                                 <!-- Title -->
                                 <div class="mb-6">
                                     <label
@@ -59,11 +72,18 @@
                                 </div>
 
                                 <!-- Description -->
-                                <div class="mb-6">
+                                {{-- <div class="mb-6">
                                     <label
                                         class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">Description</label>
                                     <div class="text-gray-700 leading-relaxed whitespace-pre-line text-lg text-justify">
                                         {{ $project->description }}
+                                    </div>
+                                </div> --}}
+
+                                <div class="mb-6">
+                                    <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">Description</label>
+                                    <div class="text-gray-700 leading-relaxed text-lg prose prose-lg max-w-none text-justify">
+                                        {!! $project->description !!}
                                     </div>
                                 </div>
 

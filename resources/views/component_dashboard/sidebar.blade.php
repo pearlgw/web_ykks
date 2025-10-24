@@ -77,7 +77,7 @@
         @endif
 
         <!-- Content -->
-        <a href="{{ url('/content') }}"
+        {{-- <a href="{{ url('/content') }}"
             class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
             {{ request()->is('content*')
                 ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 border border-blue-200'
@@ -92,7 +92,7 @@
             @if (request()->is('content*'))
                 <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
             @endif
-        </a>
+        </a> --}}
 
         <a href="{{ url('/project') }}"
             class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200

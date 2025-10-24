@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image_backdrop')->nullable();
 
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('program_id')->constrained('programs')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
