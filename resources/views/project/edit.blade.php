@@ -376,6 +376,117 @@
         </div>
     </main>
 
+    <!-- Custom Error Modal -->
+    <div id="errorModal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background Overlay -->
+            <div class="fixed inset-0 transition-opacity bg-gray-900 bg-opacity-75" onclick="closeErrorModal()"></div>
+
+            <!-- Modal Content -->
+            <div
+                class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <!-- Icon & Header -->
+                <div class="bg-gradient-to-r from-red-500 to-pink-500 px-6 py-8">
+                    <div class="flex items-center justify-center">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center animate-bounce">
+                            <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Content -->
+                <div class="px-6 py-6">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-3">
+                        Upload Failed!
+                    </h3>
+                    <p id="errorMessage" class="text-gray-600 text-center text-base leading-relaxed mb-6">
+                        <!-- Error message will be inserted here -->
+                    </p>
+
+                    <!-- Details (optional) -->
+                    <div id="errorDetails" class="hidden bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+                        <p class="text-sm text-red-700 font-medium mb-1">Error Details:</p>
+                        <p id="errorDetailsText" class="text-sm text-red-600"></p>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                            <div>
+                                <p class="text-sm font-semibold text-blue-900 mb-1">Tips:</p>
+                                <ul class="text-xs text-blue-700 space-y-1">
+                                    <li>• Maximum file size: 2MB</li>
+                                    <li>• Allowed formats: JPEG, PNG, JPG, GIF</li>
+                                    <li>• Try compressing your image first</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="bg-gray-50 px-6 py-4 flex justify-center gap-3">
+                    <button type="button" onclick="closeErrorModal()"
+                        class="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition duration-200 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        Got it
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showErrorModal(message, details = null) {
+            const modal = document.getElementById('errorModal');
+            const messageEl = document.getElementById('errorMessage');
+            const detailsContainer = document.getElementById('errorDetails');
+            const detailsText = document.getElementById('errorDetailsText');
+
+            messageEl.textContent = message;
+
+            if (details) {
+                detailsText.textContent = details;
+                detailsContainer.classList.remove('hidden');
+            } else {
+                detailsContainer.classList.add('hidden');
+            }
+
+            modal.classList.remove('hidden');
+
+            // Add animation
+            setTimeout(() => {
+                modal.querySelector('.inline-block').classList.add('animate-fadeInUp');
+            }, 10);
+        }
+
+        function closeErrorModal() {
+            const modal = document.getElementById('errorModal');
+            modal.classList.add('hidden');
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeErrorModal();
+            }
+        });
+    </script>
+
     <script>
         // Image Preview Functionality
         const imageInput = document.getElementById('image_backdrop');
@@ -441,6 +552,31 @@
             upload() {
                 return this.loader.file
                     .then(file => new Promise((resolve, reject) => {
+                        // Validasi ukuran file di client side (2MB)
+                        const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+                        if (file.size > maxSize) {
+                            const fileSizeMB = (file.size / 1024 / 1024).toFixed(2);
+                            showErrorModal(
+                                `Your image is too large (${fileSizeMB}MB)`,
+                                'Maximum allowed size is 2MB. Please compress or resize your image and try again.'
+                            );
+                            // Reject tanpa message untuk avoid default alert
+                            reject();
+                            return;
+                        }
+
+                        // Validasi tipe file
+                        const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
+                        if (!allowedTypes.includes(file.type)) {
+                            showErrorModal(
+                                'Invalid file format',
+                                `Only JPEG, PNG, JPG and GIF images are allowed. Your file type: ${file.type}`
+                            );
+                            // Reject tanpa message untuk avoid default alert
+                            reject();
+                            return;
+                        }
+
                         const data = new FormData();
                         data.append('upload', file);
                         data.append('_token', '{{ csrf_token() }}');
@@ -452,18 +588,35 @@
                                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                                 }
                             })
-                            .then(response => response.json())
+                            .then(response => {
+                                if (!response.ok) {
+                                    return response.json().then(err => {
+                                        showErrorModal(
+                                            'Upload failed',
+                                            err.error?.message ||
+                                            'An error occurred while uploading your image'
+                                        );
+                                        throw new Error('Upload error');
+                                    });
+                                }
+                                return response.json();
+                            })
                             .then(result => {
-                                if (result.url) {
+                                if (result.uploaded && result.url) {
                                     resolve({
                                         default: result.url
                                     });
                                 } else {
-                                    reject(result.error?.message || 'Upload failed');
+                                    showErrorModal(
+                                        'Upload failed',
+                                        result.error?.message || 'Could not upload image'
+                                    );
+                                    reject();
                                 }
                             })
                             .catch(error => {
-                                reject('Upload failed: ' + error);
+                                // Jangan tampilkan alert lagi, sudah ada modal
+                                reject();
                             });
                     }));
             }
@@ -522,7 +675,10 @@
                     toolbar: [
                         'imageTextAlternative', '|',
                         'imageStyle:inline', 'imageStyle:block', 'imageStyle:side'
-                    ]
+                    ],
+                    upload: {
+                        types: ['jpeg', 'png', 'gif', 'jpg']
+                    }
                 },
                 table: {
                     contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
@@ -531,6 +687,19 @@
             .then(editor => {
                 editorInstance = editor;
                 console.log('CKEditor initialized successfully');
+
+                // Suppress default error notifications dari CKEditor
+                editor.plugins.get('Notification').on('show:warning', (evt) => {
+                    evt.stop();
+                }, {
+                    priority: 'high'
+                });
+
+                editor.plugins.get('Notification').on('show:error', (evt) => {
+                    evt.stop();
+                }, {
+                    priority: 'high'
+                });
             })
             .catch(error => {
                 console.error('CKEditor initialization error:', error);
@@ -542,7 +711,10 @@
 
             if (!editorData || editorData.trim() === '') {
                 e.preventDefault();
-                alert('Description is required!');
+                showErrorModal(
+                    'Description is required!',
+                    'Please provide a description for your project before submitting.'
+                );
                 return false;
             }
 
@@ -550,4 +722,22 @@
             document.querySelector('#description').value = editorData;
         });
     </script>
+
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.3s ease-out;
+        }
+    </style>
 </x-app-layout>

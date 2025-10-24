@@ -151,24 +151,63 @@ class ProjectController extends Controller
 
     public function uploadImage(Request $request)
     {
-        if ($request->hasFile('upload')) {
-            $file = $request->file('upload');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('uploads/ckeditor', $filename, 'public');
+        try {
+            // Validasi file
+            $validator = \Validator::make($request->all(), [
+                'upload' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // Max 2MB
+            ], [
+                'upload.required' => 'Please select an image to upload',
+                'upload.image' => 'The file must be an image',
+                'upload.mimes' => 'Only JPEG, PNG, JPG and GIF images are allowed',
+                'upload.max' => 'Image size must not exceed 2MB'
+            ]);
 
-            $url = asset('storage/' . $path);
+            if ($validator->fails()) {
+                return response()->json([
+                    'uploaded' => false,
+                    'error' => [
+                        'message' => $validator->errors()->first('upload')
+                    ]
+                ], 400);
+            }
+
+            if ($request->hasFile('upload')) {
+                $file = $request->file('upload');
+
+                // Double check file size (2MB = 2048 KB)
+                if ($file->getSize() > 2048 * 1024) {
+                    return response()->json([
+                        'uploaded' => false,
+                        'error' => [
+                            'message' => 'Image size must not exceed 2MB'
+                        ]
+                    ], 400);
+                }
+
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $path = $file->storeAs('uploads/ckeditor', $filename, 'public');
+
+                $url = asset('storage/' . $path);
+
+                return response()->json([
+                    'uploaded' => true,
+                    'url' => $url
+                ]);
+            }
 
             return response()->json([
-                'uploaded' => true,
-                'url' => $url
-            ]);
+                'uploaded' => false,
+                'error' => [
+                    'message' => 'No file uploaded'
+                ]
+            ], 400);
+        } catch (\Exception $e) {
+            return response()->json([
+                'uploaded' => false,
+                'error' => [
+                    'message' => 'Upload failed: ' . $e->getMessage()
+                ]
+            ], 500);
         }
-
-        return response()->json([
-            'uploaded' => false,
-            'error' => [
-                'message' => 'Upload failed'
-            ]
-        ]);
     }
 }
