@@ -33,10 +33,17 @@
                     class="px-8 py-4 bg-white text-gray-900 font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
                     About Us
                 </a>
-                <a href="/login"
-                    class="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-lg border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                    Login
-                </a>
+                @auth
+                    <a href="{{ route('dashboard') }}"
+                        class="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-lg border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
+                        Dashboard
+                    </a>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-lg border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
+                        Login
+                    </a>
+                @endauth
             </div>
         </div>
     </div>

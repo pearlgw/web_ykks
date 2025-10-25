@@ -21,67 +21,51 @@
                 </p>
 
                 <!-- Programs List -->
-                <div class="space-y-6 border-l-2 border-gray-800 pl-6">
-                    <!-- Swipe Safe -->
-                    <div>
-                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
-                            <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
-                                <i class="fas fa-mobile-alt text-xs"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-gray-900 transition-colors">
-                                Swipe Safe</h3>
-                        </a>
-                        <p class="text-gray-700 text-sm ml-9">
-                            A digital literacy program for children and youth to promote safer and wiser use of
-                            social media and understanding online safety.
-                        </p>
-                    </div>
+                <div class="space-y-6 border-l-2 border-gray-800 pl-6 mb-8">
+                    @php
+                        // Ambil 4 program terbaru
+                        $programs = \App\Models\Program::latest()->take(4)->get();
+                    @endphp
 
-                    <!-- Indo Youth Advisory -->
-                    <div>
-                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
-                            <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
-                                <i class="fas fa-users text-xs"></i>
+                    @forelse($programs as $program)
+                        <div class="group hover:bg-cyan-600 hover:p-3 hover:rounded-xl transition-all duration-300">
+                            <a href="{{ route('detail.program', $program->id) }}"
+                                class="flex items-start space-x-3 mb-2 hover:transition group">
+                                <div
+                                    class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
+                                    @if ($program->icon_image)
+                                        <img src="{{ asset('storage/' . $program->icon_image) }}"
+                                            alt="{{ $program->title }}" class="w-full h-full object-cover rounded">
+                                    @else
+                                        <i class="fas fa-folder text-xs"></i>
+                                    @endif
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors">
+                                    {{ $program->title }}
+                                </h3>
+                            </a>
+                            <p class="text-gray-700 text-sm ml-9 line-clamp-2 group-hover:text-white transition-colors">
+                                {{ Str::words($program->description) }}
+                            </p>
+                        </div>
+                    @empty
+                        <!-- Fallback jika tidak ada data -->
+                        <div class="text-center py-8">
+                            <div class="text-gray-400 mb-2">
+                                <i class="fas fa-folder-open text-4xl"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-900">Indo Youth Advisory</h3>
-                        </a>
-                        <p class="text-gray-700 text-sm ml-9">
-                            A participatory forum that empowers young people to voice their opinions and propose
-                            solutions to social issues in their communities.
-                        </p>
-                    </div>
+                            <p class="text-gray-600 text-sm">No programs available yet</p>
+                        </div>
+                    @endforelse
+                </div>
 
-                    <!-- Voice Now -->
-                    <div>
-                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
-                            <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
-                                <i class="fas fa-microphone text-xs"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900">Voice Now</h3>
-                        </a>
-                        <p class="text-gray-700 text-sm ml-9">
-                            A creative space for children and youth to express their thoughts and feelings through
-                            art, storytelling, and media as part of healing and empowerment efforts.
-                        </p>
-                    </div>
-
-                    <!-- WWEE -->
-                    <div>
-                        <a href="/program-project" class="flex items-start space-x-3 mb-2 hover:transition group">
-                            <div
-                                class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-300">
-                                <i class="fas fa-leaf text-xs"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900">WWEE</h3>
-                        </a>
-                        <p class="text-gray-700 text-sm ml-9">
-                            A program that focuses on empowering women in conservation areas through education,
-                            livelihood support, and environmental awareness to promote sustainable living.
-                        </p>
-                    </div>
+                <!-- Learn More Button -->
+                <div class="ml-9">
+                    <a href="{{ url('/program-project') }}"
+                        class="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 group">
+                        <span>View All Programs</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                    </a>
                 </div>
             </div>
 
@@ -112,65 +96,42 @@
 
         <!-- Project Cards -->
         <div class="grid md:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
-                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80"
-                    alt="Swipe Safe Training" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
-                        Swipe Safe Training Session for Students at SMA Negeri 15 Semarang
-                    </h3>
-                    <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
-                        A workshop aimed at teaching students safe and responsible behavior in the digital world.
-                        Empowering teens with knowledge to protect themselves online.
-                    </p>
-                    <button
-                        class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
-                        Learn more
-                    </button>
-                </div>
-            </div>
+            @forelse($projects as $project)
+                <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
+                    @if ($project->image_backdrop)
+                        <img src="{{ asset('storage/' . $project->image_backdrop) }}" alt="{{ $project->title }}"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    @else
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+                            alt="{{ $project->title }}"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    @endif
 
-            <!-- Card 2 -->
-            <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
-                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80"
-                    alt="Voice Now Training" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
-                        Voice Now Training Session for Students at SMA Negeri 1 Semarang
-                    </h3>
-                    <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
-                        An engaging session to help students express their thoughts confidently and respectfully,
-                        building communication and advocacy skills for the future.
-                    </p>
-                    <button
-                        class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
-                        Learn more
-                    </button>
-                </div>
-            </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
 
-            <!-- Card 3 -->
-            <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80"
-                    alt="Voice Now Training" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
-                        Voice Now Training Session for
-                    </h3>
-                    <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
-                        Equipping students with the tools to speak up and share their stories. Encouraging youth to
-                        become active voices in their communities.
-                    </p>
-                    <button
-                        class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
-                        Learn more
-                    </button>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
+                            {{ $project->title }}
+                        </h3>
+                        <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
+                            {{ Str::limit(strip_tags($project->description), 120, '...') }}
+                        </p>
+                        <a href="{{ route('detail.project', $project->id) }}"
+                            class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
+                            Learn more
+                        </a>
+                    </div>
                 </div>
-            </div>
+            @empty
+                <!-- Fallback jika tidak ada project -->
+                <div class="col-span-3 text-center py-16">
+                    <div class="text-gray-400 mb-4">
+                        <i class="fas fa-folder-open text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">No Projects Available</h3>
+                    <p class="text-gray-500">Projects will appear here once they are added.</p>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>

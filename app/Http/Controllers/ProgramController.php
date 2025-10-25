@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProgramController extends Controller
 {
@@ -40,8 +41,13 @@ class ProgramController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            'icon_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
+        if ($request->hasFile('icon_image')) {
+            $path = $request->file('icon_image')->store('program_icons', 'public');
+            $validated['icon_image'] = $path;
+        }
         Program::create($validated);
 
         return redirect()->route('program.index')->with('success', 'Program created successfully.');
@@ -75,7 +81,19 @@ class ProgramController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            'icon_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
+
+        if ($request->hasFile('icon_image')) {
+            // Hapus file lama jika ada
+            if ($program->icon_image && Storage::disk('public')->exists($program->icon_image)) {
+                Storage::disk('public')->delete($program->icon_image);
+            }
+
+            // Upload file baru
+            $path = $request->file('icon_image')->store('program_icons', 'public');
+            $validated['icon_image'] = $path;
+        }
 
         $program->update($validated);
 

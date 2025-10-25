@@ -3,23 +3,22 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('halaman_depan/navhero');
-});
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/about', function () {
     return view('about.index');
 });
 
-Route::get('/program-project', function () {
-    return view('program_project.index');
-});
+Route::get('/program-project', [HomepageController::class, 'programProject']);
+Route::get('/program-project/{id}', [HomepageController::class, 'detailProgram'])->name('detail.program');
+Route::get('/detail-project/{id}', [HomepageController::class, 'detailProject'])->name('detail.project');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::post('/ckeditor/upload', [ProjectController::class, 'uploadImage'])->name('ckeditor.upload');

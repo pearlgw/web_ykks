@@ -72,162 +72,112 @@
 
             <!-- Programs Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Program 1 -->
-                <div>
-                    <div class="flex items-start space-x-3 mb-2">
-                        <div
-                            class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                            <i class="fas fa-mobile-alt text-xs"></i>
+                @forelse($programs as $program)
+                    <!-- Program Card -->
+                    <a href="{{ route('detail.program', $program->id) }}">
+                        <div class="group hover:bg-cyan-900 hover:p-6 hover:rounded-2xl transition-all duration-300">
+                            <div class="flex items-start space-x-3 mb-2">
+                                <div
+                                    class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-all duration-300">
+                                    @if ($program->icon_image)
+                                        <img src="{{ asset('storage/' . $program->icon_image) }}"
+                                            alt="{{ $program->title }}" class="w-full h-full object-cover rounded">
+                                    @else
+                                        <i class="fas fa-folder text-xs"></i>
+                                    @endif
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300">
+                                    {{ $program->title }}
+                                </h3>
+                            </div>
+                            <p class="text-gray-700 text-sm ml-9 leading-relaxed group-hover:text-white">
+                                {{ Str::words($program->description, 20, '...') }}
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900">Swipe Safe</h3>
-                    </div>
-                    <p class="text-gray-700 text-sm ml-9">
-                        A digital literacy program for children and youth to promote safer and wiser use of
-                        social media and understanding online safety.
-                    </p>
-                </div>
-
-                <!-- Program 2 -->
-                <div>
-                    <div class="flex items-start space-x-3 mb-2">
-                        <div
-                            class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                            <i class="fas fa-mobile-alt text-xs"></i>
+                    </a>
+                @empty
+                    <!-- Empty State -->
+                    <div class="col-span-full text-center py-16">
+                        <div class="mb-4">
+                            <i class="fas fa-folder-open text-6xl text-gray-300"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900">Voice Now</h3>
+                        <h3 class="text-2xl font-bold text-gray-600 mb-2">No Programs Available</h3>
+                        <p class="text-gray-500 mb-6">Programs will appear here once they are added.</p>
+                        @auth
+                            <a href="{{ route('program.create') }}"
+                                class="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+                                <i class="fas fa-plus"></i>
+                                <span>Add Your First Program</span>
+                            </a>
+                        @endauth
                     </div>
-                    <p class="text-gray-700 text-sm ml-9">
-                        A creative space for children and youth to express their thoughts and feelings through art,
-                        storytelling, and media as part of healing and empowerment efforts.
-                    </p>
-                </div>
-
-                <!-- Program 3 -->
-                <div>
-                    <div class="flex items-start space-x-3 mb-2">
-                        <div
-                            class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                            <i class="fas fa-mobile-alt text-xs"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">Education</h3>
-                    </div>
-                    <p class="text-gray-700 text-sm ml-9">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                        elementum tristique.
-                    </p>
-                </div>
-
-                <!-- Program 4 -->
-                <div>
-                    <div class="flex items-start space-x-3 mb-2">
-                        <div
-                            class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                            <i class="fas fa-mobile-alt text-xs"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">Indo Youth Advisory</h3>
-                    </div>
-                    <p class="text-gray-700 text-sm ml-9">
-                        A participatory forum that empowers young people to voice their opinions and propose solutions
-                        to social issues in their communities.
-                    </p>
-                </div>
-
-                <!-- Program 5 -->
-                <div>
-                    <div class="flex items-start space-x-3 mb-2">
-                        <div
-                            class="bg-gray-900 text-white w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-1">
-                            <i class="fas fa-mobile-alt text-xs"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900">WWEE</h3>
-                    </div>
-                    <p class="text-gray-700 text-sm ml-9">
-                        A program that focuses on empowering women in conservation areas through education, livelihood
-                        support, and environmental awareness to promote sustainable living.
-                    </p>
-                </div>
-
+                @endforelse
             </div>
+
+            @if ($programs->count() > 0)
+                <!-- Programs Count -->
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-600">
+                        Showing <span class="font-semibold text-gray-900">{{ $programs->count() }}</span>
+                        {{ Str::plural('program', $programs->count()) }}
+                    </p>
+                </div>
+            @endif
 
         </div>
     </section>
 
-    <section class="pb-16 bg-white">
+    <section class="pt-20 pb-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="mb-12">
                 <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-14 h-1 bg-gray-800"></div>
-                    <span class="text-sm font-semibold text-gray-800 uppercase tracking-wider">Projects we have
-                        done</span>
+                    <div class="w-12 h-1 bg-gray-800"></div>
+                    <span class="text-sm font-semibold text-gray-800 uppercase tracking-wider">PROJECT</span>
                 </div>
                 <h2 class="text-4xl md:text-4xl font-bold text-gray-900 leading-tight max-w-xl pl-20">
-                    We are creating a place where children with special needs can thrive
+                    Discover how our programs and community stories create lasting impact.
                 </h2>
             </div>
 
             <!-- Project Cards -->
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80"
-                        alt="Swipe Safe Training" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
-                            Swipe Safe Training Session for Students at SMA Negeri 15 Semarang
-                        </h3>
-                        <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
-                            A workshop aimed at teaching students safe and responsible behavior in the digital world.
-                            Empowering teens with knowledge to protect themselves online.
-                        </p>
-                        <button
-                            class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
-                            Learn more
-                        </button>
-                    </div>
-                </div>
+                @forelse($projects as $project)
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
+                        @if ($project->image_backdrop)
+                            <img src="{{ asset('storage/' . $project->image_backdrop) }}" alt="{{ $project->title }}"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        @else
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+                                alt="{{ $project->title }}"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        @endif
 
-                <!-- Card 2 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80"
-                        alt="Voice Now Training" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
-                            Voice Now Training Session for Students at SMA Negeri 1 Semarang
-                        </h3>
-                        <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
-                            An engaging session to help students express their thoughts confidently and respectfully,
-                            building communication and advocacy skills for the future.
-                        </p>
-                        <button
-                            class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
-                            Learn more
-                        </button>
-                    </div>
-                </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
 
-                <!-- Card 3 -->
-                <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80"
-                        alt="Voice Now Training" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
-                            Voice Now Training Session for
-                        </h3>
-                        <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
-                            Equipping students with the tools to speak up and share their stories. Encouraging youth to
-                            become active voices in their communities.
-                        </p>
-                        <button
-                            class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
-                            Learn more
-                        </button>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                            <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-3">
+                                {{ $project->title }}
+                            </h3>
+                            <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-3">
+                                {{ Str::limit(strip_tags($project->description), 120, '...') }}
+                            </p>
+                            <a href="{{ route('detail.project', $project->id) }}"
+                                class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition">
+                                Learn more
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @empty
+                    <!-- Fallback jika tidak ada project -->
+                    <div class="col-span-3 text-center py-16">
+                        <div class="text-gray-400 mb-4">
+                            <i class="fas fa-folder-open text-5xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No Projects Available</h3>
+                        <p class="text-gray-500">Projects will appear here once they are added.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
