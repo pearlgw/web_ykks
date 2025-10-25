@@ -68,7 +68,12 @@
                 <div class="bg-gradient-to-r {{ $randomGradient }} p-12 md:p-20 flex items-center justify-center">
                     <div class="text-center text-white">
                         <div class="mb-6">
-                            <i class="fas fa-shield-alt text-6xl md:text-7xl opacity-90"></i>
+                            @if ($program->icon_image)
+                                <img src="{{ asset('storage/' . $program->icon_image) }}" alt="{{ $program->title }}"
+                                    class="w-24 h-24 md:h-32 mx-auto object-contain opacity-90">
+                            @else
+                                <i class="fas fa-shield-alt text-6xl md:text-7xl opacity-90"></i>
+                            @endif
                         </div>
                         <h2 class="text-3xl md:text-5xl font-bold tracking-wide">
                             {{ $program->title }}
