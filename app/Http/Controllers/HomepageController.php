@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LiteracyCorner;
+use App\Models\News;
 use App\Models\Program;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -12,7 +14,9 @@ class HomepageController extends Controller
     {
         $programs = Program::latest()->take(4)->get();
         $projects = Project::latest()->take(3)->get();
-        return view('halaman_depan.navhero', compact('programs', 'projects'));
+        $literacys = LiteracyCorner::latest()->take(3)->get();
+        $news = News::latest()->take(2)->get();
+        return view('halaman_depan.navhero', compact('programs', 'projects', 'literacys', 'news'));
     }
 
     public function programProject()

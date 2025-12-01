@@ -74,6 +74,42 @@
                     <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
                 @endif
             </a>
+
+            <!-- News -->
+            <a href="{{ route('news.index') }}"
+                class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
+{{ request()->is('news*')
+    ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 border border-blue-200'
+    : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50' }}">
+                <div class="flex items-center justify-center w-6 h-6">
+                    <i
+                        class="fas fa-newspaper w-5 h-5 {{ request()->is('news*') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500' }} transition-colors"></i>
+                </div>
+                <span>News</span>
+
+                <!-- Indicator -->
+                @if (request()->is('news*'))
+                    <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
+                @endif
+            </a>
+
+            <!-- Literacy Corner -->
+            <a href="{{ route('literacy-corner.index') }}"
+                class="group flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200
+{{ request()->is('literacy-corner*')
+    ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 border border-blue-200'
+    : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50' }}">
+                <div class="flex items-center justify-center w-6 h-6">
+                    <i
+                        class="fas fa-book-reader w-5 h-5 {{ request()->is('literacy-corner*') ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-500' }} transition-colors"></i>
+                </div>
+                <span>Literacy Corner</span>
+
+                <!-- Indicator -->
+                @if (request()->is('literacy-corner*'))
+                    <div class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></div>
+                @endif
+            </a>
         @endif
 
         <!-- Content -->

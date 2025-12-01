@@ -4,47 +4,56 @@
         <h2 class="text-3xl font-bold text-gray-900 mb-8">News</h2>
 
         <div class="grid md:grid-cols-2 gap-6">
-            <!-- News Card 1 -->
+            @foreach($news as $item)
+            <!-- News Card -->
             <div class="bg-[#8DE1FF] rounded-2xl p-6 flex items-center justify-between">
                 <div class="flex items-start space-x-4">
                     <div class="text-center">
-                        <div class="text-4xl font-bold text-gray-900">13</div>
-                        <div class="text-xs font-semibold text-gray-700 uppercase">APR</div>
+                        <div class="text-4xl font-bold text-gray-900">{{ \Carbon\Carbon::parse($item->datetime_news)->format('d') }}</div>
+                        <div class="text-xs font-semibold text-gray-700 uppercase">{{ \Carbon\Carbon::parse($item->datetime_news)->format('M') }}</div>
                     </div>
                     <div>
-                        <div class="flex items-center space-x-2">
-                            <div class="text-xs font-semibold text-gray-700 uppercase">COMPAS.COM</div>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <div class="text-xs font-semibold text-gray-700 uppercase">{{ $item->from_news }}</div>
                             <div class="w-12 h-1 bg-gray-800"></div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 leading-tight">
-                            YKKS Dampingi Anak dalam Kegiatan Kegiatan Edukatif.....
+                        <h3 class="text-lg font-bold text-gray-900 leading-tight line-clamp-2">
+                            {{ $item->title }}
                         </h3>
                     </div>
                 </div>
-                <button
+                <button onclick="openNewsModal({{ $item->id }})"
                     class="bg-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 hover:bg-gray-100 transition">
                     <i class="fas fa-arrow-right text-gray-900"></i>
                 </button>
             </div>
+            @endforeach
+        </div>
 
-            <!-- News Card 2 -->
-            <div class="bg-[#8DE1FF] rounded-2xl p-6 flex items-center justify-between">
-                <div class="flex items-start space-x-4">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-gray-900">25</div>
-                        <div class="text-xs font-semibold text-gray-700 uppercase">APR</div>
+        <!-- Modal Detail News -->
+        <div id="newsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
+                <!-- Modal Header -->
+                <div class="bg-[#8DE1FF] px-6 py-4 flex items-center justify-between">
+                    <h3 id="modalTitle" class="text-2xl font-bold text-gray-900"></h3>
+                    <button onclick="closeNewsModal()" class="text-gray-900 hover:text-gray-700 text-2xl font-bold">
+                        &times;
+                    </button>
+                </div>
+
+                <!-- Modal Body - Scrollable -->
+                <div class="p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
+                    <div class="mb-4">
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <span class="font-semibold uppercase" id="modalSource"></span>
+                            <span>•</span>
+                            <span id="modalDate"></span>
+                        </div>
                     </div>
-                    <div>
-                        <div class="text-xs font-semibold text-gray-700 uppercase mb-2">DETIK.COM</div>
-                        <h3 class="text-lg font-bold text-gray-900 leading-tight">
-                            YKKS Gelar Aktivitas Bersama Anak untuk Tumbuhkan.....
-                        </h3>
+                    <div class="prose prose-lg max-w-none">
+                        <p id="modalDescription" class="text-gray-700 leading-relaxed whitespace-pre-wrap"></p>
                     </div>
                 </div>
-                <button
-                    class="bg-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 hover:bg-gray-100 transition">
-                    <i class="fas fa-arrow-right text-gray-900"></i>
-                </button>
             </div>
         </div>
 
@@ -119,6 +128,47 @@
 </section>
 
 <script>
+    // Data news untuk modal
+    const newsData = @json($news);
+
+    // Fungsi buka modal
+    function openNewsModal(newsId) {
+        const news = newsData.find(item => item.id === newsId);
+        if (news) {
+            document.getElementById('modalTitle').textContent = news.title;
+            document.getElementById('modalSource').textContent = news.from_news;
+
+            // Format tanggal
+            const date = new Date(news.datetime_news);
+            const formattedDate = date.toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('modalDate').textContent = formattedDate;
+
+            document.getElementById('modalDescription').textContent = news.description;
+            document.getElementById('newsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent body scroll
+        }
+    }
+
+    // Fungsi tutup modal
+    function closeNewsModal() {
+        document.getElementById('newsModal').classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Restore body scroll
+    }
+
+    // Tutup modal ketika klik di luar modal
+    document.getElementById('newsModal')?.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeNewsModal();
+        }
+    });
+
+    // Contact form script
     const form = document.getElementById('contactForm');
 
     form.addEventListener('submit', async function(e) {

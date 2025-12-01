@@ -4,6 +4,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\LiteracyCornerController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProjectController;
@@ -70,6 +72,22 @@ Route::middleware('auth')->group(function () {
         Route::get('/program/{id}', [ProgramController::class, 'show'])->name('program.show');
         Route::get('/program/{id}/edit', [ProgramController::class, 'edit'])->name('program.edit');
         Route::delete('/program/{id}', [ProgramController::class, 'destroy'])->name('program.destroy');
+
+        Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+        Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+        Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+        Route::put('/news/{id}', [NewsController::class, 'update'])->name('news.update');
+        Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+        Route::get('/news/{id}/edit', [NewsController::class, 'edit'])->name('news.edit');
+        Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+
+        Route::get('/literacy-corner', [LiteracyCornerController::class, 'index'])->name('literacy-corner.index');
+        Route::get('/literacy-corner/create', [LiteracyCornerController::class, 'create'])->name('literacy-corner.create');
+        Route::post('/literacy-corner', [LiteracyCornerController::class, 'store'])->name('literacy-corner.store');
+        Route::put('/literacy-corner/{id}', [LiteracyCornerController::class, 'update'])->name('literacy-corner.update');
+        Route::get('/literacy-corner/{id}', [LiteracyCornerController::class, 'show'])->name('literacy-corner.show');
+        Route::get('/literacy-corner/{id}/edit', [LiteracyCornerController::class, 'edit'])->name('literacy-corner.edit');
+        Route::delete('/literacy-corner/{id}', [LiteracyCornerController::class, 'destroy'])->name('literacy-corner.destroy');
 
     });
 });

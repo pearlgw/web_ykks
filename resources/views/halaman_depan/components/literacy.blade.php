@@ -14,56 +14,31 @@
 
         <!-- Cards Grid -->
         <div class="grid md:grid-cols-3 gap-6">
-            <!-- Card 1 -->
+            @foreach($literacys as $literacy)
+            <!-- Card -->
             <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
                 <div class="h-64 px-3 pt-3">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80"
-                        alt="Mental Health Awareness" class="w-full h-full object-cover rounded-lg">
+                    <img src="{{ $literacy->image_backdrop ? asset('storage/' . $literacy->image_backdrop) : 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80' }}"
+                        alt="{{ $literacy->title }}" class="w-full h-full object-cover rounded-lg">
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                        Mental Health Awareness: Let's Talk
+                        {{ $literacy->title }}
                     </h3>
-                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">
-                        Raising awareness about mental health is essential for everyone's well-being. Let's break
-                        the stigma and start open conversations.
+                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 mb-4">
+                        {{ $literacy->description }}
                     </p>
+                    <a href="{{ asset('storage/' . $literacy->file_pdf) }}"
+                       download
+                       class="inline-flex items-center px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-lg transition-colors duration-200">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Download PDF
+                    </a>
                 </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                <div class="h-64 px-3 pt-3">
-                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&q=80"
-                        alt="Empowering Women" class="w-full h-full object-cover rounded-lg">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                        Empowering Women through Sewing Courses
-                    </h3>
-                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">
-                        Sewing courses empower women to become economically independent. Support skills that create
-                        opportunities and a brighter future.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
-                <div class="h-64 px-3 pt-3">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=80"
-                        alt="ChildFund Logo" class="w-full h-full object-cover rounded-lg">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                        Swipe Safe: Building Digital Literacy for Teens
-                    </h3>
-                    <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">
-                        Teaching teens how to navigate the digital world safely. Digital literacy is the key to a
-                        smarter, safer future.
-                    </p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
