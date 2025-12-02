@@ -85,7 +85,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-gradient-to-b bg-cyan-500">
+    {{-- <section class="py-16 bg-gradient-to-b bg-cyan-500">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Stat 1 -->
@@ -157,7 +157,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Projects Section -->
     <section class="pt-20 pb-28 bg-white">
