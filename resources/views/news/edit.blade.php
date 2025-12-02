@@ -27,8 +27,8 @@
 
                 <!-- Form Card -->
                 <div class="max-w-2xl">
-                    <form action="{{ route('news.update', $news->id) }}" method="POST"
-                        enctype="multipart/form-data" class="space-y-6">
+                    <form action="{{ route('news.update', $news->id) }}" method="POST" enctype="multipart/form-data"
+                        class="space-y-6">
                         @csrf
                         @method('PUT')
 
@@ -134,8 +134,41 @@
                                             {{ $message }}
                                         </p>
                                     @enderror
-                                    <p class="mt-2 text-xs text-gray-500">Select the date and time when this news was published
+                                    <p class="mt-2 text-xs text-gray-500">Select the date and time when this news was
+                                        published
                                     </p>
+                                </div>
+
+
+                                <div>
+                                    <label for="image_backdrop" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        Backdrop Image <span class="text-gray-400">(Optional - leave empty to keep
+                                            current image)</span>
+                                    </label>
+                                    <input type="file" id="image_backdrop" name="image_backdrop" accept="image/*"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 @error('image_backdrop') border-red-500 @enderror">
+                                    <p class="mt-1 text-xs text-gray-500">Upload new image to replace the current
+                                        backdrop (JPG, PNG, Max: 2MB)</p>
+                                    @error('image_backdrop')
+                                        <p class="mt-2 text-sm text-red-600 flex items-center gap-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
+
+                                    @if ($news->image_backdrop)
+                                        <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                            <p class="text-sm font-medium text-blue-900 mb-2">Current Backdrop Image
+                                            </p>
+                                            <img src="{{ asset('storage/' . $news->image_backdrop) }}"
+                                                alt="{{ $news->title }}"
+                                                class="h-40 object-cover rounded-lg border border-blue-300">
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <!-- Current News Info -->
@@ -164,13 +197,13 @@
                                                     <strong>Source:</strong> {{ $news->from_news }}
                                                 </span>
                                                 <span class="text-xs text-gray-500">
-                                                    <strong>Date:</strong> {{ \Carbon\Carbon::parse($news->datetime_news)->format('d M Y, H:i') }}
+                                                    <strong>Date:</strong>
+                                                    {{ \Carbon\Carbon::parse($news->datetime_news)->format('d M Y, H:i') }}
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
@@ -205,8 +238,10 @@
                             </svg>
                             <div>
                                 <h3 class="font-semibold text-blue-900 mb-1">Editing News</h3>
-                                <p class="text-sm text-blue-700">Update the news title, description, source, and date & time as
-                                    needed. All fields marked with <span class="text-red-500">*</span> are required.</p>
+                                <p class="text-sm text-blue-700">Update the news title, description, source, and date &
+                                    time as
+                                    needed. All fields marked with <span class="text-red-500">*</span> are required.
+                                </p>
                             </div>
                         </div>
                     </div>

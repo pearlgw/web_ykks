@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             ProgramSeeder::class,
             ProjectSeeder::class,
+            LiteracySeeder::class,
+            NewsSeeder::class,
         ]);
     }
 }

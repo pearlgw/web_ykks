@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('from_news');
             $table->dateTime('datetime_news');
+            $table->string('image_backdrop')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -59,6 +59,42 @@
                         <!-- Content -->
                         <div class="p-8 space-y-8">
 
+                            <!-- Image Backdrop Section -->
+                            <div class="pb-6 border-b-2 border-blue-100">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                    <p class="text-xs font-bold text-blue-600 uppercase tracking-wider">Image Backdrop</p>
+                                </div>
+                                @if ($news->image_backdrop)
+                                    <div class="relative rounded-xl overflow-hidden shadow-lg group">
+                                        <img src="{{ asset('storage/' . $news->image_backdrop) }}"
+                                            alt="{{ $news->title }}"
+                                            class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                            <p class="text-white text-sm font-medium">{{ $news->title }}</p>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="flex items-center justify-center h-64 bg-gray-100 rounded-xl border-2 border-dashed border-gray-300">
+                                        <div class="text-center">
+                                            <svg class="w-16 h-16 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                                </path>
+                                            </svg>
+                                            <p class="text-gray-500 font-medium">No image backdrop available</p>
+                                            <p class="text-gray-400 text-sm mt-1">Upload an image to display here</p>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
                             <!-- Title Section -->
                             <div class="pb-6 border-b-2 border-blue-100">
                                 <div class="flex items-center gap-2 mb-3">

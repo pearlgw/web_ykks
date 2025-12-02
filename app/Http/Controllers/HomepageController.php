@@ -15,7 +15,7 @@ class HomepageController extends Controller
         $programs = Program::latest()->take(4)->get();
         $projects = Project::latest()->take(3)->get();
         $literacys = LiteracyCorner::latest()->take(3)->get();
-        $news = News::latest()->take(2)->get();
+        $news = News::latest()->take(3)->get();
         return view('halaman_depan.navhero', compact('programs', 'projects', 'literacys', 'news'));
     }
 

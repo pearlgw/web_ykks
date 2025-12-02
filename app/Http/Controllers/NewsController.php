@@ -45,7 +45,13 @@ class NewsController extends Controller
             'description' => 'required|string',
             'from_news' => 'required|string|max:255',
             'datetime_news' => 'required|date',
+            'image_backdrop' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        if ($request->hasFile('image_backdrop')) {
+            $path = $request->file('image_backdrop')->store('news_images', 'public');
+            $validated['image_backdrop'] = $path;
+        }
 
         News::create($validated);
 
@@ -83,7 +89,13 @@ class NewsController extends Controller
             'description' => 'required|string',
             'from_news' => 'required|string|max:255',
             'datetime_news' => 'required|date',
+            'image_backdrop' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        if ($request->hasFile('image_backdrop')) {
+            $path = $request->file('image_backdrop')->store('news_images', 'public');
+            $validated['image_backdrop'] = $path;
+        }
 
         $news->update($validated);
 

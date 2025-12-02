@@ -3,35 +3,73 @@
         <!-- News Section -->
         <h2 class="text-3xl font-bold text-gray-900 mb-8">News</h2>
 
-        <div class="grid md:grid-cols-2 gap-6">
-            @foreach($news as $item)
-            <!-- News Card -->
-            <div class="bg-[#8DE1FF] rounded-2xl p-6 flex items-center justify-between">
-                <div class="flex items-start space-x-4">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-gray-900">{{ \Carbon\Carbon::parse($item->datetime_news)->format('d') }}</div>
-                        <div class="text-xs font-semibold text-gray-700 uppercase">{{ \Carbon\Carbon::parse($item->datetime_news)->format('M') }}</div>
-                    </div>
-                    <div>
-                        <div class="flex items-center space-x-2 mb-2">
-                            <div class="text-xs font-semibold text-gray-700 uppercase">{{ $item->from_news }}</div>
-                            <div class="w-12 h-1 bg-gray-800"></div>
+        <div class="grid md:grid-cols-3 gap-6">
+            @forelse($news as $item)
+                <div class="relative rounded-2xl overflow-hidden shadow-lg h-96 group">
+                    <!-- Background Image -->
+                    @if ($item->image_backdrop)
+                        <img src="{{ asset('storage/' . $item->image_backdrop) }}" alt="{{ $item->title }}"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    @else
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80"
+                            alt="{{ $item->title }}"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    @endif
+
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+
+                    <!-- Content -->
+                    <div class="absolute inset-0 p-6 flex flex-col justify-between text-white">
+                        <!-- Top Section: Date & Source -->
+                        <div class="flex items-start justify-between">
+                            <div class="text-center bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2">
+                                <div class="text-2xl font-bold text-gray-900">
+                                    {{ \Carbon\Carbon::parse($item->datetime_news)->format('d') }}
+                                </div>
+                                <div class="text-xs font-semibold text-gray-700 uppercase">
+                                    {{ \Carbon\Carbon::parse($item->datetime_news)->format('M') }}
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-lg">
+                                <div class="w-6 h-0.5 bg-white"></div>
+                                <div class="text-xs font-semibold uppercase">{{ $item->from_news }}</div>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 leading-tight line-clamp-2">
-                            {{ $item->title }}
-                        </h3>
+
+                        <!-- Bottom Section: Title, Description & Button -->
+                        <div>
+                            <h3 class="text-xl font-bold leading-tight mb-3 line-clamp-2">
+                                {{ $item->title }}
+                            </h3>
+                            @if ($item->description)
+                                <p class="text-sm text-gray-200 leading-relaxed mb-4 line-clamp-2">
+                                    {{ Str::limit(strip_tags($item->description), 100, '...') }}
+                                </p>
+                            @endif
+                            <button onclick="openNewsModal({{ $item->id }})"
+                                class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition inline-flex items-center space-x-2">
+                                <span>Read More</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <button onclick="openNewsModal({{ $item->id }})"
-                    class="bg-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 hover:bg-gray-100 transition">
-                    <i class="fas fa-arrow-right text-gray-900"></i>
-                </button>
-            </div>
-            @endforeach
+            @empty
+                <!-- Fallback jika tidak ada news -->
+                <div class="col-span-3 text-center py-16">
+                    <div class="text-gray-400 mb-4">
+                        <i class="fas fa-newspaper text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">No News Available</h3>
+                    <p class="text-gray-500">News updates will appear here once they are published.</p>
+                </div>
+            @endforelse
         </div>
 
         <!-- Modal Detail News -->
-        <div id="newsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div id="newsModal"
+            class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
             <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
                 <!-- Modal Header -->
                 <div class="bg-[#8DE1FF] px-6 py-4 flex items-center justify-between">
