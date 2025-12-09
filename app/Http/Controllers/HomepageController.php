@@ -45,4 +45,16 @@ class HomepageController extends Controller
 
         return view('program_project.detail_project', compact('project', 'projects'));
     }
+
+    public function detailNews($id)
+    {
+        $news = News::findOrFail($id);
+
+        $otherNews = News::where('id', '!=', $id)
+            ->latest('datetime_news')
+            ->take(3)
+            ->get();
+
+        return view('news_home.detail_news', compact('news', 'otherNews'));
+    }
 }

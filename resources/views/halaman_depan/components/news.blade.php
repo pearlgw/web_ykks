@@ -47,11 +47,11 @@
                                     {{ Str::limit(strip_tags($item->description), 100, '...') }}
                                 </p>
                             @endif
-                            <button onclick="openNewsModal({{ $item->id }})"
+                            <a href="{{ route('detail.news', $item->id) }}"
                                 class="bg-[#8DE1FF] hover:bg-cyan-700 hover:text-white text-black px-6 py-2 rounded-md text-sm font-medium transition inline-flex items-center space-x-2">
                                 <span>Read More</span>
                                 <i class="fas fa-arrow-right text-xs"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -65,34 +65,6 @@
                     <p class="text-gray-500">News updates will appear here once they are published.</p>
                 </div>
             @endforelse
-        </div>
-
-        <!-- Modal Detail News -->
-        <div id="newsModal"
-            class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-            <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
-                <!-- Modal Header -->
-                <div class="bg-[#8DE1FF] px-6 py-4 flex items-center justify-between">
-                    <h3 id="modalTitle" class="text-2xl font-bold text-gray-900"></h3>
-                    <button onclick="closeNewsModal()" class="text-gray-900 hover:text-gray-700 text-2xl font-bold">
-                        &times;
-                    </button>
-                </div>
-
-                <!-- Modal Body - Scrollable -->
-                <div class="p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
-                    <div class="mb-4">
-                        <div class="flex items-center space-x-4 text-sm text-gray-600">
-                            <span class="font-semibold uppercase" id="modalSource"></span>
-                            <span>•</span>
-                            <span id="modalDate"></span>
-                        </div>
-                    </div>
-                    <div class="prose prose-lg max-w-none">
-                        <p id="modalDescription" class="text-gray-700 leading-relaxed whitespace-pre-wrap"></p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Contact Us Section -->
@@ -166,46 +138,6 @@
 </section>
 
 <script>
-    // Data news untuk modal
-    const newsData = @json($news);
-
-    // Fungsi buka modal
-    function openNewsModal(newsId) {
-        const news = newsData.find(item => item.id === newsId);
-        if (news) {
-            document.getElementById('modalTitle').textContent = news.title;
-            document.getElementById('modalSource').textContent = news.from_news;
-
-            // Format tanggal
-            const date = new Date(news.datetime_news);
-            const formattedDate = date.toLocaleDateString('id-ID', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            document.getElementById('modalDate').textContent = formattedDate;
-
-            document.getElementById('modalDescription').textContent = news.description;
-            document.getElementById('newsModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent body scroll
-        }
-    }
-
-    // Fungsi tutup modal
-    function closeNewsModal() {
-        document.getElementById('newsModal').classList.add('hidden');
-        document.body.style.overflow = 'auto'; // Restore body scroll
-    }
-
-    // Tutup modal ketika klik di luar modal
-    document.getElementById('newsModal')?.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeNewsModal();
-        }
-    });
-
     // Contact form script
     const form = document.getElementById('contactForm');
 
