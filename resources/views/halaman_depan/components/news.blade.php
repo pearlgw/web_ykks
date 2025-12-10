@@ -122,14 +122,13 @@
                 </div>
                 <div class="text-center">
                     <p class="text-sm font-semibold text-gray-900 leading-relaxed">
-                        JL. KARANGRANJANG BARAT NO.VIII,<br>
-                        KOTA SEMARANG, JAWA TENGAH
+                        Jl. Karanggawang Baru VIII, RT.3/RW.4, Tandang <br> Kec. Tembalang, Semarang, Indonesia, Central Java
                     </p>
                     <p class="text-sm font-semibold text-gray-900 mt-2">
-                        PHONE: 0822 21 1234 5678
+                        PHONE: (024) 6724865
                     </p>
                     <p class="text-sm font-semibold text-gray-900">
-                        EMAIL: INFO@YKKS.ORG
+                        EMAIL: kksoegijapranata@gmail.com
                     </p>
                 </div>
             </div>
