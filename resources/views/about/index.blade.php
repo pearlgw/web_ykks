@@ -62,21 +62,37 @@
             </div>
 
             <!-- Main Content Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-justify">
 
                 <!-- Left: Description -->
                 <div class="animate-fade-in-up opacity-0 delay-1">
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                        Founded in 1990, Yayasan Kesejahteraan Keluarga Soegijapranata (YKKS) adalah organisasi
-                        non-profit yang berdedikasi untuk meningkatkan kesejahteraan keluarga, pendidikan, dan
-                        pemberdayaan sosial di Indonesia.
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify"></p>
+                    </p>
+                    Yayasan Kesejahteraan Keluarga Soegijapranata disingkat YKKS merupakan organisasi non pemerintah
+                    yang berdiri sejak tahun 1977 di Semarang. Didirikan oleh trio aktivis sosial yakni (almarhum)
+                    Bruder Servatius Tjondrohartanto, FIC, (almarhum) Ibu C. Djoeariah, SH dan (almarhum) Ibu Agnes Kris
+                    Sumarsanti. Pada waktu didirikan lembaga ini merupakan unit kerja dari dari Yayasan Sosial
+                    Soegijapranata (YSS) Keuskupan Agung Semarang – yang waktu itu banyak bermitra dengan LSM
+                    internasional dan diberi kantor di Jalan Srigunting 10 Semarang. Tahun 2005 menjadi lembaga mandiri
+                    dengan akte notaris Subiyanto Putro, SH No 31 Tahun 2005 tanggal 25 Januari 2005. Sejak tahun 2004 –
+                    2009 sempat berpindah-pindah kantor antara lain di Jalan Kedungmundu 56, dan kemudian pada tahun
+                    2008 mendirikan kantor sendiri di belakang kelurahan Tandang, Kecamatan Tembalang, Kota Semarang di
+                    lahan bekas bong/makam Thionghoa.
                     </p>
 
-                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                        Dengan kepercayaan mendalam bahwa keluarga yang kuat membangun masyarakat yang kuat, YKKS
-                        menyediakan program yang mendukung perempuan, anak-anak, dan kelompok rentan melalui inisiatif
-                        pendidikan, kesehatan, dan berbasis komunitas. Over the years, YKKS has grown into a trusted
-                        foundation that uplifts lives and encourages inclusive development across local communities.
+                    <p class="text-lg text-gray-700 leading-relaxed mb-10 text-justify"></p>
+                    Sejak didirikan sampai sekarang Yayasan ini didonori oleh Christian Children Fund (CCF) yang kini
+                    berubah menjadi ChildFund International di Indonesia. Pernah bermitra dengan CCF Jerman untuk
+                    penanganan anak jalanan Kota Semarang tahun 2005-2009. Bermitra dengan Fontera Australia untuk
+                    pengembangan anak usia dini melalui Program ENHANCE di Kota dan Kabupaten Semarang. Pernah
+                    bekerjasama dengan Kementerian Pemuda dan Olah Raga untuk Program ROMPI. Bermitra dengan Yayasan
+                    Elisabet Belanda untuk pengembangan Panti Asuhan Servatius. Juga mendapat program pencegahan
+                    trafficking dalam program GADIS. Tahun 2010 Yayasan Sosial Sidomulyo di Ungaran yang mengelola GSM
+                    Sidomulyo yang melayani di wilayah Kabupaten Semarang bergabung dengan YKKS. Saat ini YKKS bekerja
+                    di Kalurahan Tandang dan Sendangguwo, Kecamatan Tembalang, Kota Semarang dan di Desa Gondoriyo,
+                    Kecamatan Bergas, Desa Wonorejo Kecamatan Pringapus dan Desa Tlompakan Kecamatan Tuntang Kabupaten
+                    Semarang. Tahun 2020 mengembangkan pelayanan baru di Kelurahan Tanjung Mas, Dadapsari, Kuningan dan
+                    Bandarharjo di Kecamatan Semarang Utara
                     </p>
 
                     <!-- Scroll Down Button -->
@@ -88,25 +104,14 @@
                 </div>
 
                 <!-- Right: Image with Overlay -->
-                <div class="animate-fade-in-up opacity-0 delay-2">
-                    <div class="relative group">
-                        <div class="rounded-3xl overflow-hidden shadow-2xl h-[450px] md:h-[500px]">
-                            <img src="{{ asset('img/about.jpg') }}" alt="Our Team" class="w-full h-full object-cover">
-                        </div>
-
-                        <!-- Floating Badge -->
-                        <div
-                            class="absolute bottom-8 left-8 bg-white rounded-xl p-4 shadow-2xl backdrop-blur-sm border border-white/20">
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-heart text-cyan-500 text-lg"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-gray-900 text-sm">Trusted</p>
-                                    <p class="text-xs text-gray-600">Since 1990</p>
-                                </div>
-                            </div>
-                        </div>
+                <!-- PPT Section -->
+                <div class="relative w-full max-w-xl mx-auto overflow-hidden rounded-3xl shadow-2xl">
+                    <!-- Tetap 16:9 tapi fisiknya lebih kecil -->
+                    <div class="relative w-full" style="padding-top: 56.25%;">
+                        <iframe
+                            src="https://docs.google.com/presentation/d/1zxPoZqJuO8mbEtSrn3Yj7NwbSEM6reFJ/embed?start=false&loop=false&delayms=3000"
+                            class="absolute inset-0 w-full h-full" style="border:0;" frameborder="0" allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
 
@@ -134,11 +139,11 @@
             </div>
 
             <!-- Video Section -->
-            <div class="mb-20 animate-fade-in-up opacity-0 delay-1">
+            <!-- <div class="mb-20 animate-fade-in-up opacity-0 delay-1">
                 <div class="rounded-3xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] relative group">
                     <img src="{{ asset('img/video.png') }}" alt="Our Team" class="w-full h-full object-cover">
                 </div>
-            </div>
+            </div> -->
 
             <!-- Mission & Vision Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -156,20 +161,20 @@
                     <ul class="space-y-4">
                         <li class="flex items-start gap-4 text-gray-700">
                             <span class="text-cyan-500 font-bold mt-1">✓</span>
-                            <span>Meningkatkan kesejahteraan keluarga Indonesia melalui program pendidikan dan
-                                pemberdayaan</span>
+                            <span>Memfasilitasi upaya perlindungan anak dengan memperhatikan hak anak.</span>
                         </li>
                         <li class="flex items-start gap-4 text-gray-700">
                             <span class="text-cyan-500 font-bold mt-1">✓</span>
-                            <span>Mendorong pengembangan sumber daya manusia (SDM) yang berkualitas tinggi</span>
+                            <span>Memberdayakan perempuan dalam bidang ekonomi, sosial, budaya dan politik.</span>
                         </li>
                         <li class="flex items-start gap-4 text-gray-700">
                             <span class="text-cyan-500 font-bold mt-1">✓</span>
-                            <span>Mewujudkan generasi penerus bangsa yang sehat, cerdas, dan bermoral</span>
+                            <span>Mengurangi dampak perubahan iklim dengan mendorong upaya pelestarian
+                                lingkungan.</span>
                         </li>
                         <li class="flex items-start gap-4 text-gray-700">
                             <span class="text-cyan-500 font-bold mt-1">✓</span>
-                            <span>Membangun kemitraan strategis dengan berbagai stakeholder untuk dampak maksimal</span>
+                            <span>Menciptakan lingkungan yang mendukung peningkatan kesejahteraan keluarga.</span>
                         </li>
                     </ul>
                 </div>
@@ -186,9 +191,8 @@
                     </div>
                     <div class="space-y-4 text-gray-700 leading-relaxed">
                         <p>
-                            Menjadi organisasi terdepan dalam upaya pemberdayaan keluarga dan pengembangan sumber daya
-                            manusia yang berkontribusi pada pembangunan berkelanjutan dan kesejahteraan masyarakat
-                            Indonesia.
+                            Terwujudnya perlindungan anak, kesetaraan gender, kelestarian lingkungan, serta peningkatan
+                            kesejahteraan keluarga.
                         </p>
                     </div>
                 </div>
@@ -330,241 +334,309 @@
                 <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
                     Meet our team
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                <!-- <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius eros in eros elementum
                     tristique.
-                </p>
+                </p> -->
             </div>
 
             <!-- Team Members Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Team Member 1 -->
+                <!-- 1. Antonius Widodo -->
                 <div class="animate-fade-in-up opacity-0 delay-1 group">
                     <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim1.png') }}" alt="Paulus Mujiran"
+                        <img src="{{ asset('img/antonius-widodo.jpg') }}" alt="Antonius Widodo"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
                         </div>
                     </div>
                     <center>
-
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Paulus Mujiran</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">Pimpinan Proyek</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Antonius Widodo</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">
+                            Koordinator Bagian Hubungan Sponsor (BHS)
+                        </p>
                         <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-linkedin-in text-xs"></i>
+                            <a href="https://www.instagram.com/antonius.widodo.52/"
+                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram text-xs"></i>
                             </a>
                         </div>
                     </center>
                 </div>
 
-                <!-- Team Member 2 -->
+                <!-- 2. Irma Amalia -->
                 <div class="animate-fade-in-up opacity-0 delay-2 group">
                     <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim2.png') }}" alt="Francis Weber"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                        </div>
-                    </div>
-                    <center>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Francis Weber</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC</p>
-                        <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-linkedin-in text-xs"></i>
-                            </a>
-                        </div>
-                    </center>
-                </div>
-
-                <!-- Team Member 3 -->
-                <div class="animate-fade-in-up opacity-0 delay-3 group">
-                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim3.png') }}" alt="Kyla Obrien"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                        </div>
-                    </div>
-                    <center>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kyla Obrien</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC</p>
-                        <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-linkedin-in text-xs"></i>
-                            </a>
-                        </div>
-                    </center>
-                </div>
-
-                <!-- Team Member 4 -->
-                <div class="animate-fade-in-up opacity-0 delay-1 group">
-                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim4.png') }}" alt="Adrian Dixon"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                        </div>
-                    </div>
-                    <center>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Adrian Dixon</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">Sponsorship</p>
-                        <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-linkedin-in text-xs"></i>
-                            </a>
-                        </div>
-                    </center>
-                </div>
-
-                <!-- Team Member 5 -->
-                <div class="animate-fade-in-up opacity-0 delay-2 group">
-                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim5.png') }}" alt="Irma Amalia"
+                        <img src="{{ asset('img/irma-amalia.jpeg') }}" alt="Irma Amalia"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
                         </div>
                     </div>
                     <center>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Irma Amalia</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC</p>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC Swipe Safe</p>
                         <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
+                            <a href="https://www.instagram.com/amlirma?igsh=ZHVucDd2MGdlanJj"
+                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram text-xs"></i>
                             </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
+                            <a href="https://www.linkedin.com/in/irma-amalia-3020a0203"
+                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin-in text-xs"></i>
                             </a>
                         </div>
                     </center>
                 </div>
 
-                <!-- Team Member 6 -->
+                <!-- 3. Risma Putri Supriyanto (tidak ingin sosmed) -->
                 <div class="animate-fade-in-up opacity-0 delay-3 group">
                     <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim6.png') }}" alt="Zulfkhar Lintang"
+                        <img src="{{ asset('img/risma-putri-supriyanto.jpeg') }}" alt="Risma Putri Supriyanto"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
                         </div>
                     </div>
                     <center>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Zulfikar Lintang</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC</p>
-                        <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-linkedin-in text-xs"></i>
-                            </a>
-                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Risma Putri Supriyanto</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Admin Cluster &amp; BHS</p>
                     </center>
-
                 </div>
 
-                <!-- Team Member 7 -->
+                <!-- 4. Indah Novita Sari -->
                 <div class="animate-fade-in-up opacity-0 delay-1 group">
                     <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim7.png') }}" alt="Kiya"
+                        <img src="{{ asset('img/indah-novita-sari.jpg') }}" alt="Indah Novita Sari"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
                         </div>
                     </div>
                     <center>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kiya</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Indah Novita Sari</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Monitoring dan Evaluasi (M&amp;E)</p>
                         <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
+                            <a href="https://www.linkedin.com/in/indah-novita-sari-045825161/"
+                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin-in text-xs"></i>
                             </a>
                         </div>
                     </center>
                 </div>
 
-                <!-- Team Member 8 -->
+                <!-- 5. Emi Lestari -->
                 <div class="animate-fade-in-up opacity-0 delay-2 group">
                     <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/tim8.png') }}" alt="Mahya"
+                        <img src="{{ asset('img/emi-lestari.jpg') }}" alt="Emi Lestari"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
                         </div>
                     </div>
                     <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Emi Lestari</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Koordinator Komisi BHS</p>
+                    </center>
+                </div>
 
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mahya</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC</p>
+                <!-- 6. Sumarni -->
+                <div class="animate-fade-in-up opacity-0 delay-3 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/sumarni.jpg') }}" alt="Sumarni"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sumarni</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Koordinator Komisi BHS</p>
+                    </center>
+                </div>
+
+                <!-- 7. Lusiana Dewi Fibriantin -->
+                <div class="animate-fade-in-up opacity-0 delay-1 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/lusiana-dewi-fibriantin.jpg') }}" alt="Lusiana Dewi Fibriantin"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Lusiana Dewi Fibriantin</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Koordinator Komisi BHS</p>
+                    </center>
+                </div>
+
+                <!-- 8. Yeni Rahayu Kasmawati -->
+                <div class="animate-fade-in-up opacity-0 delay-2 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/yeni-rahayu-kasmawati.jpg') }}" alt="Yeni Rahayu Kasmawati"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Yeni Rahayu Kasmawati</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Koordinator Komisi BHS</p>
+                    </center>
+                </div>
+
+                <!-- 9. Zulfikar Lintang Nuswantoro -->
+                <div class="animate-fade-in-up opacity-0 delay-3 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/zulfikar-lintang-nuswantoro.jpg') }}" alt="Zulfikar Lintang Nuswantoro"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Zulfikar Lintang Nuswantoro</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">
+                            PIC Program Education for Protection and Wellbeing
+                        </p>
                         <div class="flex gap-3 justify-center">
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-facebook-f text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
-                                <i class="fab fa-twitter text-xs"></i>
-                            </a>
-                            <a href="#"
-                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all">
+                            <a href="https://www.linkedin.com/in/zulfikar-lintang-228469147"
+                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin-in text-xs"></i>
                             </a>
                         </div>
                     </center>
+                </div>
 
+                <!-- 10. Mahya Agfiyani -->
+                <div class="animate-fade-in-up opacity-0 delay-1 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/mahya-agfiyani.jpg') }}" alt="Mahya Agfiyani"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mahya Agfiyani</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC Program Livelihood</p>
+                        <div class="flex gap-3 justify-center">
+                            <a href="https://id.linkedin.com/in/mahyaagf"
+                                class="w-8 h-8 rounded-full bg-gray-200 hover:bg-cyan-500 flex items-center justify-center text-gray-700 hover:text-white transition-all"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin-in text-xs"></i>
+                            </a>
+                        </div>
+                    </center>
+                </div>
+
+                <!-- 11. Riska Anggraeni Putri -->
+                <div class="animate-fade-in-up opacity-0 delay-2 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/riska-anggraeni-putri.jpg') }}" alt="Riska Anggraeni Putri"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Riska Anggraeni Putri</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC Program Health</p>
+                    </center>
+                </div>
+
+                <!-- 12. Fera Wijayanti -->
+                <div class="animate-fade-in-up opacity-0 delay-3 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/fera-wijayanti.jpg') }}" alt="Fera Wijayanti"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Fera Wijayanti</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Kasir</p>
+                    </center>
+                </div>
+
+                <!-- 13. Agung Baskoro Prahardian -->
+                <!-- <div class="animate-fade-in-up opacity-0 delay-1 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/agung-baskoro-prahardian.jpg') }}" alt="Agung Baskoro Prahardian"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Agung Baskoro Prahardian</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Koordinator Keuangan</p>
+                    </center>
+                </div> -->
+
+                <!-- 14. Dyah Sri Purwaniwati -->
+                <div class="animate-fade-in-up opacity-0 delay-2 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/dyah-sri-purwaniwati.jpg') }}" alt="Dyah Sri Purwaniwati"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Dyah Sri Purwaniwati, SP, S.Pd.AUD</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Monitoring dan Evaluasi (M&amp;E)</p>
+                    </center>
+                </div>
+
+                <!-- 15. Rachel Tika Aristiani -->
+                <div class="animate-fade-in-up opacity-0 delay-3 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/rachel-tika-aristiani.jpg') }}" alt="Rachel Tika Aristiani"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Rachel Tika Aristiani</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Assistant M&amp;E</p>
+                    </center>
+                </div>
+
+                <!-- 16. Paulus Mujiran -->
+                <div class="animate-fade-in-up opacity-0 delay-1 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/paulus-mujiran.jpeg') }}" alt="Paulus Mujiran"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Paulus Mujiran, S.Sos, MSi</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Pimpinan Proyek</p>
+                    </center>
+                </div>
+
+                <!-- 17. Anggela Putri Puspita -->
+                <div class="animate-fade-in-up opacity-0 delay-2 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/anggela-putri-puspita.jpg') }}" alt="Anggela Putri Puspita"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Anggela Putri Puspita</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC Learning</p>
+                    </center>
+                </div>
+
+                <!-- 18. Parwati Handayani -->
+                <div class="animate-fade-in-up opacity-0 delay-3 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/parwati-handayani.jpg') }}" alt="Parwati Handayani"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Parwati Handayani</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">PIC Learning</p>
+                    </center>
                 </div>
 
             </div>

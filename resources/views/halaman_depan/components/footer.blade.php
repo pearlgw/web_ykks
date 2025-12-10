@@ -13,31 +13,28 @@
             <!-- Right - Social Media & Copyright -->
             <div class="text-center md:text-right">
                 <div class="flex space-x-3 justify-center md:justify-end mb-3">
-                    <a href="#"
-                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition">
+                    <a href="https://web.facebook.com/YKKSSemarang"
+                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition"
+                        target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-facebook-f text-sm"></i>
                     </a>
-                    <a href="#"
-                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition">
-                        <i class="fab fa-twitter text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition">
+
+                    <a href="https://www.instagram.com/kksoegijapranata?igsh=MWFlajNjenRwZzcxOQ=="
+                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition"
+                        target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-instagram text-sm"></i>
                     </a>
-                    <a href="#"
-                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition">
-                        <i class="fab fa-linkedin-in text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition">
+
+                    <a href="https://www.youtube.com/@kksoegijapranata317"
+                        class="bg-gray-900 text-white w-8 h-8 rounded flex items-center justify-center hover:bg-gray-700 transition"
+                        target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-youtube text-sm"></i>
                     </a>
                 </div>
             </div>
         </div>
         <p class="text-sm text-gray-900 font-bold text-center mt-3 mb-8">
-            © 2023 YKKS. All rights reserved.
+            © 2025 YKKS. All rights reserved.
         </p>
     </div>
 </footer>

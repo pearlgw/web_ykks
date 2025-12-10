@@ -18,12 +18,7 @@
                     </div>
 
                     <p class="text-gray-600 leading-relaxed mb-8 pl-16 text-justify">
-                        Founded in 1990, Yayasan Kesejahteraan Keluarga Soegijapranata (YKKS) is a non-profit
-                        organization committed to promoting family welfare, education, and social empowerment in
-                        Indonesia. With a deep belief that strong families build strong communities, YKKS provides
-                        programs that support women, children, and vulnerable groups through education, health, and
-                        community-based initiatives. Over the years, YKKS has grown into a trusted foundation that
-                        uplifts lives and encourages inclusive development across local communities.
+                        Yayasan Kesejahteraan Keluarga Soegijapranata (YKKS), didirikan pada tahun 1977 di Semarang oleh tiga aktivis sosial Bruder Servatius Tjondrohartanto, FIC; Ibu C. Djoeariah, SH; dan Ibu Agnes Kris Sumarsanti. Awalnya merupakan unit kerja Yayasan Sosial Soegijapranata (YSS) Keuskupan Agung Semarang. Menjadi lembaga mandiri pada tahun 2005 melalui akte notaris, YKKS fokus pada pemberdayaan keluarga, perempuan, dan anak melalui berbagai program kolaborasi, antara lain dengan ChildFund International (d/h Christian Children Fund), Fontera Australia, Kemenpora, dan Yayasan Elisabet Belanda. Sejak 2010, YKKS juga mengelola layanan di Kabupaten Semarang setelah menggabungkan Yayasan Sosial Sidomulyo. Saat ini, YKKS aktif di wilayah Kota dan Kabupaten Semarang, termasuk sejumlah kelurahan di Kecamatan Tembalang, Bergas, Pringapus, Tuntang, serta Semarang Utara.
                     </p>
 
                     <a href="/about"
@@ -36,16 +31,16 @@
             <!-- Right Image (col-span-5) -->
             <div class="col-span-12 md:col-span-5 relative">
                 <div class="rounded-2xl overflow-hidden shadow-xl h-[500px]">
-                    <img src="{{ asset('img/about.jpg') }}" alt="Children playing outdoor"
-                        class="w-full h-full object-cover">
+                    <iframe src="https://www.youtube.com/embed/Uoqw1PYl6L4" frameborder="0" allowfullscreen
+                        class="w-full h-full object-cover"></iframe>
 
-                    <!-- Play Button Overlay -->
+                    <!-- Play Button Overlay
                     <div class="absolute inset-0 flex items-center justify-center">
                         <button
                             class="bg-white hover:bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center shadow-lg transition group">
                             <i class="fas fa-play text-cyan-400 text-2xl ml-1 group-hover:scale-110 transition"></i>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
