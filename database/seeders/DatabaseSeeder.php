@@ -24,12 +24,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
-            ContentSeeder::class,
-            ContactSeeder::class,
-            ProgramSeeder::class,
-            ProjectSeeder::class,
-            LiteracySeeder::class,
-            NewsSeeder::class,
+            // ContentSeeder::class,
+            // ContactSeeder::class,
+            // ProgramSeeder::class,
+            // ProjectSeeder::class,
+            // LiteracySeeder::class,
+            // NewsSeeder::class,
         ]);
     }
 }
