@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             // ContentSeeder::class,
             // ContactSeeder::class,
-            // ProgramSeeder::class,
+            ProgramSeeder::class,
             // ProjectSeeder::class,
             // LiteracySeeder::class,
             // NewsSeeder::class,
