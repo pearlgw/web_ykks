@@ -61,8 +61,8 @@
                     <div class="text-gray-400 mb-4">
                         <i class="fas fa-newspaper text-5xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">No News Available</h3>
-                    <p class="text-gray-500">News updates will appear here once they are published.</p>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Belum Ada Berita</h3>
+                    <p class="text-gray-500">Berita akan muncul di sini setelah dipublikasikan.</p>
                 </div>
             @endforelse
         </div>
@@ -98,7 +98,7 @@
 
                     <button type="submit"
                         class="bg-[#00BCD4] hover:bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold transition">
-                        Send Message
+                        Kirim Pesan
                     </button>
                 </form>
 
@@ -116,13 +116,14 @@
             <div>
                 <div class="bg-gray-200 rounded-2xl overflow-hidden h-64 mb-4">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d110.33907795820312!3d-6.993096800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4d3f0d024d%3A0x1e0432b9da5cb9f2!2sSemarang%2C%20Semarang%20City%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.9021312277114!2d110.452457275949!3d-7.0207893929809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708dad3e820c31%3A0xaad944273e6d081f!2sYayasan%20Kesejahteraan%20Keluarga%20Soegijapranata!5e0!3m2!1sid!2sid!4v1765737567757!5m2!1sid!2sid"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
                 <div class="text-center">
                     <p class="text-sm font-semibold text-gray-900 leading-relaxed">
-                        Jl. Karanggawang Baru VIII, RT.3/RW.4, Tandang <br> Kec. Tembalang, Semarang, Indonesia, Central Java
+                        Jl. Karanggawang Baru VIII, RT.3/RW.4, Tandang <br> Kec. Tembalang, Semarang, Indonesia, Central
+                        Java
                     </p>
                     <p class="text-sm font-semibold text-gray-900 mt-2">
                         PHONE: (024) 6724865
@@ -140,7 +141,7 @@
     // Contact form script
     const form = document.getElementById('contactForm');
 
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         // Sembunyikan semua pesan error sebelumnya

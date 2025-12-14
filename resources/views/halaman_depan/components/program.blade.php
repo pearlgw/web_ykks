@@ -12,12 +12,10 @@
             <!-- Left Content -->
             <div class="md:col-span-2 pl-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                    Explore our key programs that drive meaningful change
+                    Jelajahi program-program utama kami yang mendorong perubahan bermakna
                 </h2>
                 <p class="text-gray-700 text-sm leading-relaxed mb-8">
-                    This program is part of YKKS's ongoing commitment to improving family welfare through education,
-                    empowerment, and community engagement. It is designed to support women and children by providing
-                    access to essential knowledge, skills, and resources.
+                    Program ini merupakan bagian dari komitmen berkelanjutan YKKS dalam meningkatkan kesejahteraan keluarga melalui pendidikan, pemberdayaan, dan keterlibatan masyarakat. Program ini dirancang untuk mendukung perempuan dan anak-anak dengan menyediakan akses terhadap pengetahuan, keterampilan, serta sumber daya yang penting.
                 </p>
 
                 <!-- Programs List -->
@@ -54,7 +52,7 @@
                             <div class="text-gray-400 mb-2">
                                 <i class="fas fa-folder-open text-4xl"></i>
                             </div>
-                            <p class="text-gray-600 text-sm">No programs available yet</p>
+                            <p class="text-gray-600 text-sm">Belum ada program</p>
                         </div>
                     @endforelse
                 </div>
@@ -63,7 +61,7 @@
                 <div class="ml-9">
                     <a href="{{ url('/program-project') }}"
                         class="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 group">
-                        <span>View All Programs</span>
+                        <span>Lihat Semua Program</span>
                         <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
@@ -72,7 +70,7 @@
             <!-- Right Image -->
             <div class="relative">
                 <div class="rounded-2xl overflow-hidden shadow-xl h-full min-h-[600px]">
-                    <img src="{{ asset('img/img1.png') }}" alt="Child with headphones"
+                    <img src="{{ asset('img/program_child.jpg') }}" alt="Child with headphones"
                         class="w-full h-full object-cover">
                 </div>
             </div>
@@ -90,7 +88,7 @@
                 <span class="text-sm font-semibold text-gray-800 uppercase tracking-wider">PROJECT</span>
             </div>
             <h2 class="text-4xl md:text-4xl font-bold text-gray-900 leading-tight max-w-xl pl-20">
-                Discover how our programs and community stories create lasting impact.
+                Temukan bagaimana program-program dan cerita komunitas kami menciptakan dampak yang berkelanjutan.
             </h2>
         </div>
 
@@ -128,8 +126,8 @@
                     <div class="text-gray-400 mb-4">
                         <i class="fas fa-folder-open text-5xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">No Projects Available</h3>
-                    <p class="text-gray-500">Projects will appear here once they are added.</p>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Tidak Ada Proyek Tersedia</h3>
+                    <p class="text-gray-500">Proyek akan muncul di sini setelah ditambahkan.</p>
                 </div>
             @endforelse
         </div>

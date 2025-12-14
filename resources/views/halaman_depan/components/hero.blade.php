@@ -13,11 +13,11 @@
             <!-- Main Heading with Animation -->
             <div class="mb-8 space-y-4">
                 <h1 class="text-white text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in-up">
-                    Empowering Families,
+                    Memberdayakan Keluarga,
                 </h1>
                 <h1
                     class="text-white text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in-up-delay">
-                    Enriching Lives
+                    Meningkatkan kualitas Hidup
                 </h1>
             </div>
 
