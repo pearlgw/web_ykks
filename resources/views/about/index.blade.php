@@ -57,7 +57,7 @@
                     <span class="text-xs font-bold text-cyan-500 uppercase tracking-widest">About Us</span>
                 </div>
                 <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                    Our History
+                    Sejarah Kami
                 </h2>
             </div>
 
@@ -131,7 +131,7 @@
             <!-- Section Header -->
             <div class="text-center mb-16 animate-fade-in-up opacity-0">
                 <h2 class="text-3xl md:text-6xl font-bold text-gray-800 mb-4">
-                    Mission & Vision
+                    Visi dan Misi Kami
                 </h2>
                 <p class="text-xl text-gray-800 max-w-2xl mx-auto">
                     Komitmen kami untuk masa depan yang lebih baik
@@ -156,7 +156,7 @@
                             class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center group-hover:bg-cyan-200 transition-all">
                             <i class="fas fa-bullseye text-cyan-500 text-2xl"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-900">OUR MISSION</h3>
+                        <h3 class="text-3xl font-bold text-gray-900">VISI KAMI</h3>
                     </div>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-4 text-gray-700">
@@ -187,7 +187,7 @@
                             class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center group-hover:bg-cyan-200 transition-all">
                             <i class="fas fa-lightbulb text-cyan-500 text-2xl"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-900">OUR VISION</h3>
+                        <h3 class="text-3xl font-bold text-gray-900">VISI KAMI</h3>
                     </div>
                     <div class="space-y-4 text-gray-700 leading-relaxed">
                         <p>
@@ -206,7 +206,7 @@
     <section class="pt-16 pb-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center mb-8">
-                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider whitespace-nowrap">OUR PARTNERS
+                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider whitespace-nowrap">Mitra Kami
                 </h3>
                 <div class="flex-grow h-px bg-gray-300 ml-16"></div>
             </div>
@@ -216,10 +216,10 @@
                 <img src="{{ asset('img/image 6.png') }}" alt="ChildFund International" class="h-12 object-contain">
 
                 <!-- USAID Logo -->
-                <img src="{{ asset('img/image 7.png') }}" alt="USAID" class="h-12 object-contain">
+                <!-- <img src="{{ asset('img/image 7.png') }}" alt="USAID" class="h-12 object-contain"> -->
 
                 <!-- Tanoto Foundation Logo -->
-                <img src="{{ asset('img/image 8.png') }}" alt="Tanoto Foundation" class="h-12 object-contain">
+                <!-- <img src="{{ asset('img/image 8.png') }}" alt="Tanoto Foundation" class="h-12 object-contain"> -->
             </div>
         </div>
     </section>
@@ -229,17 +229,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Header -->
-            <div class="text-center mb-16 animate-fade-in-up opacity-0">
+            <!-- <div class="text-center mb-16 animate-fade-in-up opacity-0">
                 <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
                     Awards & Recognition
                 </h2>
             </div>
 
             <!-- Awards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
+            <!-- <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
 
                 <!-- Award 1 -->
-                <div class="text-center animate-fade-in-up opacity-0 delay-1 group">
+            <!-- <div class="text-center animate-fade-in-up opacity-0 delay-1 group">
                     <div class="mb-6 transform group-hover:scale-110 transition-transform duration-300">
                         <img src="{{ asset('img/award.png') }}" alt="award" class="inline-block h-20">
                     </div>
@@ -249,7 +249,7 @@
                 </div>
 
                 <!-- Award 2 -->
-                <div class="text-center animate-fade-in-up opacity-0 delay-2 group">
+            <!-- <div class="text-center animate-fade-in-up opacity-0 delay-2 group">
                     <div class="mb-6 transform group-hover:scale-110 transition-transform duration-300">
                         <img src="{{ asset('img/award.png') }}" alt="award" class="inline-block h-20">
                     </div>
@@ -259,7 +259,7 @@
                 </div>
 
                 <!-- Award 3 -->
-                <div class="text-center animate-fade-in-up opacity-0 delay-3 group">
+            <!-- <div class="text-center animate-fade-in-up opacity-0 delay-3 group">
                     <div class="mb-6 transform group-hover:scale-110 transition-transform duration-300">
                         <img src="{{ asset('img/award.png') }}" alt="award" class="inline-block h-20">
                     </div>
@@ -268,7 +268,7 @@
                     <p class="text-gray-600">Semarang</p>
                 </div>
 
-            </div>
+            </div> -->
 
             <!-- Journey Section -->
             <div class="bg-[#009ED6] rounded-3xl p-12 md:p-16 overflow-hidden animate-fade-in-up opacity-0 delay-1">
@@ -281,31 +281,31 @@
                     <!-- Left: Content -->
                     <div>
                         <div class="mb-6">
-                            <span class="text-xs font-bold text-white/80 uppercase tracking-widest">Our Journey</span>
+                            <span class="text-xs font-bold text-white/80 uppercase tracking-widest">Perjalanan Kami</span>
                         </div>
                         <h3 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                            How we empower communities
+                            Bagaimana kami memberdayakan masyarakat
                         </h3>
                         <p class="text-white/90 text-lg leading-relaxed mb-8">
-                            Yayasan Kesejahteraan Keluarga Soegijapranata (YKKS) has been serving families and children
-                            through impactful programs in education, family development, health, and social care. With a
-                            vision rooted in compassion and commitment, we continue to support and grow strong
-                            communities across Indonesia.
+                            Yayasan Kesejahteraan Keluarga Soegijapranata (YKKS) telah melayani keluarga dan anak-anak
+                            melalui berbagai program berdampak di bidang pendidikan, pengembangan keluarga, kesehatan,
+                            dan layanan sosial. Dengan visi yang berlandaskan kepedulian dan komitmen, kami terus
+                            mendukung dan membangun komunitas yang kuat di seluruh Indonesia.
                         </p>
 
                         <!-- Stats -->
                         <div class="grid grid-cols-3 gap-8">
                             <div>
-                                <div class="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
-                                <p class="text-white/80 text-sm font-medium">Achievements</p>
+                                <div class="text-3xl md:text-4xl font-bold text-white mb-2">30.000</div>
+                                <p class="text-white/80 text-sm font-medium">Kepala Keluarga</p>
                             </div>
                             <div>
-                                <div class="text-3xl md:text-4xl font-bold text-white mb-2">1,200+</div>
-                                <p class="text-white/80 text-sm font-medium">Beneficiaries Supported</p>
+                                <div class="text-3xl md:text-4xl font-bold text-white mb-2">2.000+</div>
+                                <p class="text-white/80 text-sm font-medium">Lembaga Perlindungan Anak</p>
                             </div>
                             <div>
-                                <div class="text-3xl md:text-4xl font-bold text-white mb-2">20+</div>
-                                <p class="text-white/80 text-sm font-medium">Program Initiatives</p>
+                                <div class="text-3xl md:text-4xl font-bold text-white mb-2">500</div>
+                                <p class="text-white/80 text-sm font-medium">Fasilitator Komunitas</p>
                             </div>
                         </div>
                     </div>
@@ -332,7 +332,7 @@
             <!-- Header -->
             <div class="text-center mb-16 animate-fade-in-up opacity-0">
                 <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                    Meet our team
+                    Kenali Tim Kami
                 </h2>
                 <!-- <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius eros in eros elementum
@@ -342,6 +342,20 @@
 
             <!-- Team Members Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- 16. Paulus Mujiran -->
+                <div class="animate-fade-in-up opacity-0 delay-1 group">
+                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
+                        <img src="{{ asset('img/paulus-mujiran.jpeg') }}" alt="Paulus Mujiran"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <center>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Paulus Mujiran, S.Sos, MSi</h3>
+                        <p class="text-sm text-cyan-600 font-semibold mb-4">Pimpinan Proyek</p>
+                    </center>
+                </div>
 
                 <!-- 1. Antonius Widodo -->
                 <div class="animate-fade-in-up opacity-0 delay-1 group">
@@ -594,20 +608,6 @@
                     <center>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Rachel Tika Aristiani</h3>
                         <p class="text-sm text-cyan-600 font-semibold mb-4">Assistant M&amp;E</p>
-                    </center>
-                </div>
-
-                <!-- 16. Paulus Mujiran -->
-                <div class="animate-fade-in-up opacity-0 delay-1 group">
-                    <div class="mb-6 relative overflow-hidden rounded-2xl h-64 md:h-72">
-                        <img src="{{ asset('img/paulus-mujiran.jpeg') }}" alt="Paulus Mujiran"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                        </div>
-                    </div>
-                    <center>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Paulus Mujiran, S.Sos, MSi</h3>
-                        <p class="text-sm text-cyan-600 font-semibold mb-4">Pimpinan Proyek</p>
                     </center>
                 </div>
 

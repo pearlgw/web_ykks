@@ -8,7 +8,7 @@
                 <span class="text-sm font-semibold text-gray-800 uppercase tracking-wider">LITERACY CORNER</span>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight max-w-2xl pl-20">
-                A digital corner to read, reflect, and rise.
+                Ruang digital untuk membaca, merenung, dan bertumbuh
             </h2>
         </div>
 
