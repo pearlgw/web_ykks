@@ -67,6 +67,17 @@
             @endforelse
         </div>
 
+        <!-- View All News Button -->
+        @if ($news->count() > 0)
+            <div class="flex justify-center mt-12">
+                <a href="/all-news"
+                    class="bg-cyan-500 text-white px-8 py-3 rounded-lg font-semibold transition duration-300 inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <span>Lihat Semua Berita</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        @endif
+
         <!-- Contact Us Section -->
         <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center mt-16">Contact Us</h2>
 
@@ -122,7 +133,8 @@
                 </div>
                 <div class="text-center">
                     <p class="text-sm font-semibold text-gray-900 leading-relaxed">
-                        Jl. Karanggawang Baru VIII, RT.3/RW.4, Tandang <br> Kec. Tembalang, Semarang, Indonesia, Central Java
+                        Jl. Karanggawang Baru VIII, RT.3/RW.4, Tandang <br> Kec. Tembalang, Semarang, Indonesia, Central
+                        Java
                     </p>
                     <p class="text-sm font-semibold text-gray-900 mt-2">
                         PHONE: (024) 6724865

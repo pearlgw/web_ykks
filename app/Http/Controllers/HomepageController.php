@@ -57,4 +57,10 @@ class HomepageController extends Controller
 
         return view('news_home.detail_news', compact('news', 'otherNews'));
     }
+
+    public function allNews()
+    {
+        $allNews = News::latest('created_at')->paginate(9);
+        return view('news_home.all_news', compact('allNews'));
+    }
 }

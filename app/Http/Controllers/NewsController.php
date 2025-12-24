@@ -19,7 +19,7 @@ class NewsController extends Controller
                 $query->where('title', 'like', "%{$search}%");
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(9)
+            ->paginate(10)
             ->withQueryString();
 
 

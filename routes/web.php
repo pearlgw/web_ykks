@@ -22,6 +22,7 @@ Route::get('/program-project', [HomepageController::class, 'programProject']);
 Route::get('/program-project/{id}', [HomepageController::class, 'detailProgram'])->name('detail.program');
 Route::get('/detail-project/{id}', [HomepageController::class, 'detailProject'])->name('detail.project');
 Route::get('/detail-news/{id}', [HomepageController::class, 'detailNews'])->name('detail.news');
+Route::get('/all-news', [HomepageController::class, 'allNews'])->name('all.news');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::post('/ckeditor/upload', [ProjectController::class, 'uploadImage'])->name('ckeditor.upload');

@@ -24,14 +24,15 @@
                     $isHomePage = request()->is('/');
                     $isAboutPage = request()->is('about');
                     $isProgramProjectPage = request()->is('program-project') || request()->is('program-project/*');
+                    $isAllNewsPage = request()->is('all-news');
 
-                    $useHomeAnchors = $isProgramProjectPage;
+                    $useHomeAnchors = $isProgramProjectPage || $isAllNewsPage;
                 @endphp
 
                 <!-- About us -->
                 <a href="{{ $useHomeAnchors ? '/#about' : ($isHomePage ? '#about' : url('/about')) }}"
                     class="text-gray-700 font-medium transition duration-200 relative group
-    {{ $isAboutPage ? 'text-cyan-600' : ($isProgramProjectPage ? 'hover:text-cyan-600' : '') }}">
+    {{ $isAboutPage ? 'text-cyan-600' : ($isProgramProjectPage || $isAllNewsPage ? 'hover:text-cyan-600' : '') }}">
                     About us
                     <span
                         class="absolute bottom-0 left-0 h-0.5 bg-cyan-600 transition-all duration-300
@@ -60,10 +61,10 @@
 
                 <!-- News -->
                 <a href="{{ $useHomeAnchors ? '/#news' : ($isAboutPage ? url('/#news') : '#news') }}"
-                    class="text-gray-700 hover:text-cyan-600 font-medium transition duration-200 relative group">
+                    class="text-gray-700 hover:text-cyan-600 font-medium transition duration-200 relative group {{ $isAllNewsPage ? 'text-cyan-600' : '' }}">
                     News
                     <span
-                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-600 group-hover:w-full transition-all duration-300"></span>
+                        class="absolute bottom-0 left-0 h-0.5 bg-cyan-600 transition-all duration-300 {{ $isAllNewsPage ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
                 </a>
 
                 @auth
@@ -101,18 +102,18 @@
                 onclick="closeMobileMenu()">
                 <i class="fas fa-info-circle w-5 mr-3"></i>About us
             </a>
-            <a href="{{ $isAboutPage || $isProgramProjectPage ? url('/#program') : '#program' }}"
+            <a href="{{ $isAboutPage || $isProgramProjectPage || $isAllNewsPage ? url('/#program') : '#program' }}"
                 class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-lg font-medium transition duration-200"
                 onclick="closeMobileMenu()">
                 <i class="fas fa-project-diagram w-5 mr-3"></i>Programs & Projects
             </a>
-            <a href="{{ $isAboutPage || $isProgramProjectPage ? url('/#literacy') : '#literacy' }}"
+            <a href="{{ $isAboutPage || $isProgramProjectPage || $isAllNewsPage ? url('/#literacy') : '#literacy' }}"
                 class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-lg font-medium transition duration-200"
                 onclick="closeMobileMenu()">
                 <i class="fas fa-book w-5 mr-3"></i>Literacy Corner
             </a>
-            <a href="{{ $isAboutPage || $isProgramProjectPage ? url('/#news') : '#news' }}"
-                class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-lg font-medium transition duration-200"
+            <a href="{{ $isAboutPage || $isProgramProjectPage || $isAllNewsPage ? url('/#news') : '#news' }}"
+                class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-lg font-medium transition duration-200 {{ $isAllNewsPage ? 'bg-cyan-50 text-cyan-600' : '' }}"
                 onclick="closeMobileMenu()">
                 <i class="fas fa-newspaper w-5 mr-3"></i>News
             </a>
