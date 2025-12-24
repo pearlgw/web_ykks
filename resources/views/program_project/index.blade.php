@@ -33,16 +33,12 @@
                                     class="text-sm font-semibold text-gray-800 uppercase tracking-wider pl-1">Programs</span>
                             </div>
                             <h2 class="text-4xl md:text-6xl text-gray-900 leading-tight pl-16">
-                                Building impact from the ground up
+                                Membangun dampak sejak awal
                             </h2>
                         </div>
 
                         <p class="text-gray-600 leading-relaxed mb-8 pl-16 text-justify">
-                            This program is part of YKKS’s ongoing commitment to improving family welfare through
-                            education, empowerment, and community engagement. It is designed to support vulnerable
-                            groups—especially women and children—by providing access to essential knowledge, skills, and
-                            resources. Through structured activities, the program aims to build stronger, more resilient
-                            families who can thrive both socially and economically within their communities.
+                            Program ini merupakan bagian dari komitmen berkelanjutan YKKS dalam meningkatkan kesejahteraan keluarga melalui pendidikan, pemberdayaan, dan keterlibatan masyarakat. Program ini dirancang untuk mendukung kelompok rentan terutama perempuan dan anak-anak dengan menyediakan akses terhadap pengetahuan, keterampilan, serta sumber daya yang esensial. Melalui kegiatan yang terstruktur, program ini bertujuan membangun keluarga yang lebih kuat dan tangguh, sehingga mampu berkembang secara sosial dan ekonomi di dalam komunitasnya.
                         </p>
                     </div>
                 </div>
@@ -66,7 +62,7 @@
             <!-- Header -->
             <div class="mb-16 animate-fade-in-up opacity-0">
                 <h2 class="text-3xl md:text-5xl font-medium text-gray-900 leading-tight">
-                    Programs that empower, protect, and nurture every part of society
+                    Program-program yang memberdayakan, melindungi, dan merawat seluruh lapisan masyarakat
                 </h2>
             </div>
 
@@ -101,13 +97,13 @@
                         <div class="mb-4">
                             <i class="fas fa-folder-open text-6xl text-gray-300"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-600 mb-2">No Programs Available</h3>
-                        <p class="text-gray-500 mb-6">Programs will appear here once they are added.</p>
+                        <h3 class="text-2xl font-bold text-gray-600 mb-2">Belum ada program</h3>
+                        <p class="text-gray-500 mb-6">Program yang ditambahkan akan keluar disini.</p>
                         @auth
                             <a href="{{ route('program.create') }}"
                                 class="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
                                 <i class="fas fa-plus"></i>
-                                <span>Add Your First Program</span>
+                                <span>Tambah Program Pertamamu</span>
                             </a>
                         @endauth
                     </div>
@@ -136,7 +132,7 @@
                     <span class="text-sm font-semibold text-gray-800 uppercase tracking-wider">PROJECT</span>
                 </div>
                 <h2 class="text-4xl md:text-4xl font-bold text-gray-900 leading-tight max-w-xl pl-20">
-                    Discover how our programs and community stories create lasting impact.
+                    Temukan bagaimana program-program kami dan kisah komunitas menciptakan dampak yang berkelanjutan.
                 </h2>
             </div>
 
@@ -174,8 +170,8 @@
                         <div class="text-gray-400 mb-4">
                             <i class="fas fa-folder-open text-5xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No Projects Available</h3>
-                        <p class="text-gray-500">Projects will appear here once they are added.</p>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">Belum ada project tersedia</h3>
+                        <p class="text-gray-500">Projects akan muncul disini jika tersedia.</p>
                     </div>
                 @endforelse
             </div>
