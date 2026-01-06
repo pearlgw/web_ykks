@@ -46,7 +46,7 @@
                 <!-- Right Image (col-span-5) -->
                 <div class="col-span-12 md:col-span-5 relative">
                     <div class="rounded-2xl overflow-hidden shadow-xl h-[380px]">
-                        <img src="{{ asset('img/program_page.png') }}" alt="Children playing outdoor"
+                        <img src="{{ asset('img/program_page.jpeg') }}" alt="Children playing outdoor"
                             class="w-full h-full object-cover">
                     </div>
                 </div>

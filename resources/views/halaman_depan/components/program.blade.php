@@ -22,7 +22,7 @@
                 <div class="space-y-6 border-l-2 border-gray-800 pl-6 mb-8">
                     @php
                         // Ambil 4 program terbaru
-                        $programs = \App\Models\Program::latest()->take(4)->get();
+                        $programs = \App\Models\Program::latest()->take(3)->get();
                     @endphp
 
                     @forelse($programs as $program)
