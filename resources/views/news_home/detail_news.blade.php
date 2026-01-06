@@ -49,7 +49,20 @@
                     </div>
                     <div>
                         <p class="text-white/80 text-sm font-medium">Source</p>
-                        <p class="text-white text-lg font-semibold">{{ $news->from_news }}</p>
+                        @php
+                            $sourceUrl = $news->from_news;
+                            if (!preg_match('/^https?:\/\//i', $sourceUrl)) {
+                                $sourceUrl = 'https://' . $sourceUrl;
+                            }
+                        @endphp
+
+                        <a href="{{ $sourceUrl }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white text-lg font-semibold">
+                            {{ $news->from_news }}
+                        </a>
+
                     </div>
                 </div>
 
@@ -96,7 +109,7 @@
                         margin-bottom: 1.5rem;
                     }
                 </style>
-                {!! $news->description !!}
+                {!! nl2br(e($news->description)) !!}
             </div>
 
             <!-- Back Button -->

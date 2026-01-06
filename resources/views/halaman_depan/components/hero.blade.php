@@ -2,7 +2,7 @@
 <section class="relative h-screen overflow-hidden">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0">
-        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80" alt="Children smiling"
+        <img src="{{ asset('img/foto_anak.jpeg') }}" alt="Children smiling"
             class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
     </div>

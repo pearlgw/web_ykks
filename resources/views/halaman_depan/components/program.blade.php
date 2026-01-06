@@ -70,7 +70,7 @@
             <!-- Right Image -->
             <div class="relative">
                 <div class="rounded-2xl overflow-hidden shadow-xl h-full min-h-[600px]">
-                    <img src="{{ asset('img/program_child.jpg') }}" alt="Child with headphones"
+                    <img src="{{ asset('img/foto_anak_belajar.jpeg') }}" alt="Child with headphones"
                         class="w-full h-full object-cover">
                 </div>
             </div>
