@@ -87,16 +87,27 @@
                                     @enderror
                                 </div>
 
-                                <!-- File PDF Field -->
+                                <!-- PDF Link (Google Drive) Field -->
                                 <div>
-                                    <label for="file_pdf" class="block text-sm font-semibold text-gray-700 mb-2">
-                                        PDF File <span class="text-red-500">*</span>
+                                    <label for="pdf_link" class="block text-sm font-semibold text-gray-700 mb-2">
+                                        PDF Link (Google Drive) <span class="text-red-500">*</span>
                                     </label>
-                                    <input type="file" id="file_pdf" name="file_pdf" accept=".pdf"
-                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 @error('file_pdf') border-red-500 @enderror"
+
+                                    <input type="url"
+                                        id="pdf_link"
+                                        name="pdf_link"
+                                        value="{{ old('pdf_link') }}"
+                                        placeholder="https://drive.google.com/file/d/..."
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg
+                                                focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                                                transition duration-200 @error('pdf_link') border-red-500 @enderror"
                                         required>
-                                    <p class="mt-1 text-xs text-gray-500">Upload PDF file (Max: 10MB)</p>
-                                    @error('file_pdf')
+
+                                    <p class="mt-1 text-xs text-gray-500">
+                                        Paste link Google Drive PDF (pastikan akses <b>Anyone with the link</b>)
+                                    </p>
+
+                                    @error('pdf_link')
                                         <p class="mt-2 text-sm text-red-600 flex items-center gap-1">
                                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd"
@@ -107,6 +118,7 @@
                                         </p>
                                     @enderror
                                 </div>
+
 
                                 <!-- Image Backdrop Field -->
                                 <div>

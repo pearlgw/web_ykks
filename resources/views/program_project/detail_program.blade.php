@@ -48,7 +48,7 @@
 
             <!-- Description -->
             <div class="prose prose-lg text-gray-700 leading-relaxed">
-                <p>{{ $program->description }}</p>
+                {!! nl2br(e($program->description)) !!}
             </div>
 
             @php
@@ -169,7 +169,7 @@
                     <span class="text-sm font-semibold text-gray-800 uppercase tracking-wider">PROJECT</span>
                 </div>
                 <h2 class="text-4xl md:text-4xl font-bold text-gray-900 leading-tight max-w-xl pl-20">
-                    Discover how our programs and community stories create lasting impact.
+                    Temukan bagaimana program dan kisah komunitas kami menciptakan dampak yang berkelanjutan.
                 </h2>
             </div>
 

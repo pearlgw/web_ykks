@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class LiteracyCornerController extends Controller
 {
+    private function normalizeDriveLink($url)
+    {
+        if (preg_match('/\/file\/d\/([^\/]+)/', $url, $matches)) {
+            return 'https://drive.google.com/file/d/' . $matches[1] . '/view';
+        }
+
+        return $url;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -43,14 +52,16 @@ class LiteracyCornerController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'file_pdf' => 'required|file|mimes:pdf|max:10240',
+            // 'file_pdf' => 'required|file|mimes:pdf|max:10240',
+            'pdf_link' => 'required|url',
             'image_backdrop' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
-        if ($request->hasFile('file_pdf')) {
-            $pdfPath = $request->file('file_pdf')->store('literacy_corner_pdfs', 'public');
-            $validated['file_pdf'] = $pdfPath;
-        }
+        // if ($request->hasFile('file_pdf')) {
+        //     $pdfPath = $request->file('file_pdf')->store('literacy_corner_pdfs', 'public');
+        //     $validated['file_pdf'] = $pdfPath;
+        // }
+        $validated['pdf_link'] = $this->normalizeDriveLink($validated['pdf_link']);
 
         if ($request->hasFile('image_backdrop')) {
             $path = $request->file('image_backdrop')->store('literacy_corner_images', 'public');
@@ -87,26 +98,27 @@ class LiteracyCornerController extends Controller
     public function update(Request $request, $id)
     {
         $item = LiteracyCorner::findOrFail($id);
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'file_pdf' => 'file|mimes:pdf|max:10240',
-            'image_backdrop' => 'image|max:2048',
+            'pdf_link' => 'required|url',
+            'image_backdrop' => 'nullable|image|max:2048',
         ]);
 
-        if ($request->hasFile('file_pdf')) {
-            $pdfPath = $request->file('file_pdf')->store('literacy_corner_pdfs', 'public');
-            $validated['file_pdf'] = $pdfPath;
-        }
+        $validated['pdf_link'] = $this->normalizeDriveLink($validated['pdf_link']);
 
         if ($request->hasFile('image_backdrop')) {
-            $path = $request->file('image_backdrop')->store('literacy_corner_images', 'public');
+            $path = $request->file('image_backdrop')
+                ->store('literacy_corner_images', 'public');
             $validated['image_backdrop'] = $path;
         }
 
         $item->update($validated);
 
-        return redirect()->route('literacy-corner.index')->with('success', 'Literacy corner updated successfully.');
+        return redirect()
+            ->route('literacy-corner.index')
+            ->with('success', 'Literacy corner updated successfully.');
     }
 
     /**
@@ -119,4 +131,12 @@ class LiteracyCornerController extends Controller
 
         return redirect()->route('literacy-corner.index')->with('success', 'Literacy corner deleted successfully.');
     }
+
+    public function publicIndex()
+    {
+        $literacys = LiteracyCorner::latest()->paginate(9);
+
+        return view('literacy_corner.public_index', compact('literacys'));
+    }
+
 }

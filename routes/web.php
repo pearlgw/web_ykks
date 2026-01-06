@@ -89,6 +89,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/literacy-corner/{id}', [LiteracyCornerController::class, 'show'])->name('literacy-corner.show');
         Route::get('/literacy-corner/{id}/edit', [LiteracyCornerController::class, 'edit'])->name('literacy-corner.edit');
         Route::delete('/literacy-corner/{id}', [LiteracyCornerController::class, 'destroy'])->name('literacy-corner.destroy');
+        Route::get('/literacy-corner', [LiteracyCornerController::class, 'publicIndex'])->name('literacy.public.index');
 
     });
 });

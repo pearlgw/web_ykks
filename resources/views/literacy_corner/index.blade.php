@@ -119,20 +119,27 @@
                                 <span
                                     class="text-sm text-gray-600">{{ Str::words($item->description, 12, '...') }}</span>
                             </td>
-                            <!-- PDF File Column -->
+                            <!-- PDF Link Column -->
                             <td class="px-6 py-4">
-                                @if ($item->file_pdf)
-                                    <a href="{{ asset('storage/' . $item->file_pdf) }}" target="_blank"
-                                        class="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg transition duration-200 shadow-sm">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                                            </path>
-                                        </svg>
-                                        Download PDF
+                                @if (!empty($item->pdf_link))
+                                    @php
+                                        $pdfUrl = $item->pdf_link;
+                                        if (!preg_match('/^https?:\/\//i', $pdfUrl)) {
+                                            $pdfUrl = 'https://' . $pdfUrl;
+                                        }
+                                    @endphp
+
+                                    <a href="{{ $pdfUrl }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700
+                                            text-white font-semibold px-4 py-2 rounded-lg
+                                            transition duration-200 shadow-sm">
+                                        <i class="fas fa-file-pdf"></i>
+                                        View PDF
                                     </a>
                                 @else
-                                    <span class="text-sm text-gray-400 italic">No file</span>
+                                    <span class="text-sm text-gray-400 italic">No PDF link</span>
                                 @endif
                             </td>
 
