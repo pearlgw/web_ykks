@@ -22,67 +22,70 @@
 <body class="font-sans">
     @include('halaman_depan.components.navbar')
 
-    <!-- Program Header Section -->
-    <section class="pt-24 pb-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-6">
-                <a href="{{ url('/program-project') }}"
-                    class="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors duration-200 group">
-                    <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform duration-200"></i>
-                    <span class="font-medium">Back to Programs</span>
-                </a>
-            </div>
-            <!-- Breadcrumb -->
-            <div class="mb-8">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-12 h-1 bg-gray-800"></div>
-                    <span class="text-sm font-semibold text-gray-800 uppercase tracking-wider">PROGRAM</span>
-                </div>
-                {{-- <p class="text-sm text-gray-500 uppercase tracking-wider font-semibold">OUR PROGRAMS</p> --}}
-            </div>
+<!-- Program Header Section -->
+<section class="pt-24 pb-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Title -->
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                {{ $program->title }}
-            </h1>
+        <!-- Back Link -->
+        <div class="mb-8">
+            <a href="{{ url('/program-project') }}"
+               class="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition group">
+                <i class="fas fa-arrow-left transition-transform group-hover:-translate-x-1"></i>
+                <span class="font-medium">Back to Programs</span>
+            </a>
+        </div>
 
-            <!-- Description -->
-            <div class="prose prose-lg text-gray-700 leading-relaxed">
-                {!! nl2br(e($program->description)) !!}
-            </div>
-
-            @php
-                $gradients = [
-                    'from-cyan-500 to-blue-500',
-                    'from-pink-500 to-rose-500',
-                    'from-amber-500 to-orange-500',
-                    'from-emerald-500 to-teal-500',
-                    'from-purple-500 to-indigo-500',
-                    'from-lime-500 to-green-500',
-                ];
-                $randomGradient = Arr::random($gradients);
-            @endphp
-
-            <!-- Featured Image with Gradient -->
-            <div class="mt-12 rounded-2xl overflow-hidden shadow-2xl">
-                <div class="bg-gradient-to-r {{ $randomGradient }} p-12 md:p-20 flex items-center justify-center">
-                    <div class="text-center text-white">
-                        <div class="mb-6">
-                            @if ($program->icon_image)
-                                <img src="{{ asset('storage/' . $program->icon_image) }}" alt="{{ $program->title }}"
-                                    class="w-24 h-24 md:h-32 mx-auto object-contain opacity-90">
-                            @else
-                                <i class="fas fa-shield-alt text-6xl md:text-7xl opacity-90"></i>
-                            @endif
-                        </div>
-                        <h2 class="text-3xl md:text-5xl font-bold tracking-wide">
-                            {{ $program->title }}
-                        </h2>
-                    </div>
-                </div>
+        <!-- Breadcrumb -->
+        <div class="mb-10">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-1 bg-gray-800"></div>
+                <span class="text-sm font-semibold tracking-wider uppercase text-gray-800">
+                    Program
+                </span>
             </div>
         </div>
-    </section>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            {{ $program->title }}
+        </h1>
+
+        <!-- Description -->
+        <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+            {!! nl2br(e($program->description)) !!}
+        </div>
+
+        @php
+            $gradients = [
+                'from-cyan-500 to-blue-500',
+                'from-pink-500 to-rose-500',
+                'from-amber-500 to-orange-500',
+                'from-emerald-500 to-teal-500',
+                'from-purple-500 to-indigo-500',
+                'from-lime-500 to-green-500',
+            ];
+            $randomGradient = Arr::random($gradients);
+        @endphp
+
+        <!-- Featured Image -->
+<div class="mt-16 flex items-center justify-center">
+    @if ($program->icon_image)
+        <img
+            src="{{ asset('storage/' . $program->icon_image) }}"
+            alt="{{ $program->title }}"
+            class="
+                max-w-[1024px] max-h-[512px]
+                min-w-[120px] min-h-[120px]
+                object-contain
+            "
+        >
+    @else
+        <i class="fas fa-shield-alt text-7xl text-gray-400"></i>
+    @endif
+</div>
+    </div>
+</section>
+
 
     <!-- Stats Section -->
     {{-- <section class="py-16 bg-gradient-to-b bg-cyan-500">

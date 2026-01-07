@@ -60,7 +60,7 @@
 
         <div class="flex items-center mb-8">
             <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider whitespace-nowrap">
-                Mitra Kami
+                Didukung Oleh
             </h3>
             <div class="flex-grow h-px bg-gray-300 ml-6 sm:ml-16"></div>
         </div>
@@ -71,7 +71,7 @@
 
         <div class="flex items-center mt-8 mb-8">
             <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider whitespace-nowrap">
-                Didukung Oleh
+                Mitra Kami
             </h3>
             <div class="flex-grow h-px bg-gray-300 ml-6 sm:ml-16"></div>
         </div>

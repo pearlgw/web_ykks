@@ -27,6 +27,9 @@ Route::get('/all-news', [HomepageController::class, 'allNews'])->name('all.news'
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::post('/ckeditor/upload', [ProjectController::class, 'uploadImage'])->name('ckeditor.upload');
 
+Route::get('/literacy_corner', [LiteracyCornerController::class, 'publicIndex'])->name('literacy.public.index');
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -57,6 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/project/{id}', [ProjectController::class, 'show'])->name('project.show');
     Route::get('/project/{id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
     Route::delete('/project/{id}', [ProjectController::class, 'destroy'])->name('project.destroy');
+
 
     Route::middleware('role:admin')->group(function () {
         Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
@@ -90,7 +94,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/literacy-corner/{id}', [LiteracyCornerController::class, 'show'])->name('literacy-corner.show');
         Route::get('/literacy-corner/{id}/edit', [LiteracyCornerController::class, 'edit'])->name('literacy-corner.edit');
         Route::delete('/literacy-corner/{id}', [LiteracyCornerController::class, 'destroy'])->name('literacy-corner.destroy');
-        Route::get('/literacy-corner', [LiteracyCornerController::class, 'publicIndex'])->name('literacy.public.index');
 
     });
 });
